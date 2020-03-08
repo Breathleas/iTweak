@@ -1,5 +1,4 @@
 
-
 bool __cdecl -[MicroMessengerAppDelegate application:handleOpenURL:bundleID:annotation:](MicroMessengerAppDelegate *self, SEL a2, id a3, id a4, id a5, id a6)
 {
   id v6; // x22
