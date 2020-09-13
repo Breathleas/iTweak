@@ -66,6 +66,17 @@ CHOptimizedMethod3(self, void, UIApplication, openURL, NSURL*, arg1, options, NS
     CHSuper3(UIApplication, openURL, arg1, options, arg2, completionHandler, arg3);
 }
 
+#pragma mark - UIDeivce
+
+CHDeclareClass(UIDevice)
+
+//-[UIDevice identifierForVendor]
+CHMethod0(NSUUID*, UIDevice, identifierForVendor){
+    NSUUID *ret = CHSuper0(UIDevice, identifierForVendor);
+    CHLog(@">>> vendor identifier: %@", [ret UUIDString]);
+    return ret;
+}
+
 #pragma mark - ctor
 
 CHConstructor{
@@ -80,6 +91,9 @@ CHConstructor{
     
     CHLoadLateClass(NSBundle);
     CHHook0(NSBundle, bundleIdentifier);
+    
+    CHLoadLateClass(UIDevice);
+    CHHook0(UIDevice, identifierForVendor);
     
     CHLoadLateClass(UIApplication);
     CHHook1(UIApplication, openURL);
