@@ -9,15 +9,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#define Enable_AFNetworking_Hook 1
+
 typedef void(^AFNSerializeResponseFinishedHandler)(NSURLResponse *response, id responseObject, NSError **error);
 
 typedef void(^AFNSessionTaskDidCompleteHandler)(NSURLSession *session, NSURLSessionTask *task, NSError *error);
 
+typedef void(^AFNHttpRequestSuccessHandler)(NSURLSessionDataTask* task, id responseObject);
+
 @interface AFNetWorkingCallback : NSObject
 
-+(void)registAFNSerializeResponseFinishedHandler:(AFNSerializeResponseFinishedHandler)handler;
++(void)registerAFNSerializeResponseFinishedHandler:(AFNSerializeResponseFinishedHandler)handler;
 
-+ (void)registAFNSessionTaskDidCompleteHandler:(AFNSessionTaskDidCompleteHandler)handler;
++ (void)registerAFNSessionTaskDidCompleteHandler:(AFNSessionTaskDidCompleteHandler)handler;
+
++ (void)registerAFNHttpRequestSucessHandler:(AFNHttpRequestSuccessHandler)handler;
 
 @end
 

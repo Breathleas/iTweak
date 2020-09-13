@@ -74,7 +74,7 @@ CHConstructor{
         CHLog(@">>> users count: %@", @(g_followersID.count));
     }
     
-    [AFNetWorkingCallback registAFNSerializeResponseFinishedHandler:^(NSURLResponse * _Nonnull response, id  _Nonnull responseObject, NSError *__autoreleasing  _Nullable * _Nullable error) {
+    [AFNetWorkingCallback registerAFNSerializeResponseFinishedHandler:^(NSURLResponse * _Nonnull response, id  _Nonnull responseObject, NSError *__autoreleasing  _Nullable * _Nullable error) {
         NSString *url = response.URL.absoluteString;
         if([url containsString:@"/2/cardlist"]){//粉丝列表
             parseFollowersData(responseObject);
