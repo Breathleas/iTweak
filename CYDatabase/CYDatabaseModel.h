@@ -1,14 +1,39 @@
 //
-//  CYDatabaseManager.h
-//  NewsMock
+//  CYDatabaseModel.h
+//  WeiboTweak
 //
-//  Created by jiaxw on 2020/9/13.
-//  Copyright © 2020 jiaxw. All rights reserved.
+//  Created by jiaxw on 2020/9/14.
 //
 
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
+#pragma mark - CYKeyValueModel
+
+@interface CYKeyValueModel : NSObject
+
+@property (nonatomic,copy, readonly) NSString *cyid;
+
+@property (nonatomic,copy) NSString *key;
+
+@property (nonatomic,copy) NSString *value;
+
+@property (nonatomic,copy) NSString *tag;
+
+@property (nonatomic, strong) NSDate *createDatetime;
+
+@property (nonatomic, assign, readonly) NSTimeInterval createTimestamp;
+
+@property (nonatomic, strong) NSDate *lastModifyDatetime;
+
+@property (nonatomic, assign, readonly) NSTimeInterval lastModifyTimestamp;
+
+@property (nonatomic, copy) NSString *memo;
+
+@end
+
+#pragma mark - CYNetWorkRequestModel
 
 @interface CYNetWorkRequestModel : NSObject
 
@@ -59,13 +84,4 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface CYDatabaseManager : NSObject
-
-+(instancetype)sharedDatabase;
-
-- (void)insertRequestData:(CYNetWorkRequestModel *)model;
-
-@end
-
 NS_ASSUME_NONNULL_END
-
