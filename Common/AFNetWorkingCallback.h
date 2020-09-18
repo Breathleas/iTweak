@@ -60,8 +60,13 @@ typedef void(^AFNHttpRequestSuccessHandler)(NSURLSessionDataTask* task, id respo
          }
      }
      
-     [[CYDatabaseManager sharedDatabase] insertRequestData:model];
-      
+     [[CYDatabaseManager sharedDatabase] saveRequestData:model complete:^(BOOL success, NSError * _Nullable error) {
+         if(!success){
+             NSLog(@">>> %@", error.description);
+         } else {
+             NSLog(@">>> save %@ success.", model);
+         }
+     }];
  }];
  */
 + (void)registerAFNHttpRequestSucessHandler:(AFNHttpRequestSuccessHandler)handler;
