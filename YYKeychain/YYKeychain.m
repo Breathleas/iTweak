@@ -15,6 +15,39 @@
 #import <Security/Security.h>
 #import <UIKit/UIKit.h>
 
+void resetKeyChainAllPassword(void){
+    NSMutableDictionary *query = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                  (__bridge id)kCFBooleanTrue, (__bridge id)kSecReturnAttributes,
+                                  (__bridge id)kSecMatchLimitAll, (__bridge id)kSecMatchLimit,
+                                  nil];
+    NSArray *secItemClasses = [NSArray arrayWithObjects:
+                               (__bridge id)kSecClassGenericPassword,
+                               (__bridge id)kSecClassInternetPassword,
+                               (__bridge id)kSecClassCertificate,
+                               (__bridge id)kSecClassKey,
+                               (__bridge id)kSecClassIdentity,
+                               nil];
+    for (id secItemClass in secItemClasses) {
+        [query setObject:secItemClass forKey:(__bridge id)kSecClass];
+        
+        CFTypeRef result = NULL;
+        SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
+        if (result != NULL) CFRelease(result);
+        
+        NSDictionary *spec = @{(__bridge id)kSecClass: secItemClass};
+        SecItemDelete((__bridge CFDictionaryRef)spec);
+    }
+}
+
+NSString* getKeychainPassword(NSString *accout){
+    YYKeychainItem *item = [[YYKeychainItem alloc] init];
+    item.service = accout;
+    item.account = accout;
+//    item.accessGroup = @"B83JBVZ6M5.com.baidu.baidumobile.cuid"; //可选项
+    id password = [YYKeychain selectOneItem:item].passwordObject;
+    return password;
+}
+
 static BOOL isSimulator(){
     #if TARGET_OS_SIMULATOR
         return YES;
@@ -278,16 +311,17 @@ static YYKeychainQuerySynchronizationMode YYKeychainQuerySynchonizationEnum(NSNu
     NSMutableString *str = @"".mutableCopy;
     [str appendString:@"YYKeychainItem:{\n"];
     if (self.service) [str appendFormat:@"  service:%@,\n", self.service];
-    if (self.account) [str appendFormat:@"  service:%@,\n", self.account];
-    if (self.password) [str appendFormat:@"  service:%@,\n", self.password];
-    if (self.label) [str appendFormat:@"  service:%@,\n", self.label];
-    if (self.type != nil) [str appendFormat:@"  service:%@,\n", self.type];
-    if (self.creater != nil) [str appendFormat:@"  service:%@,\n", self.creater];
-    if (self.comment) [str appendFormat:@"  service:%@,\n", self.comment];
-    if (self.descr) [str appendFormat:@"  service:%@,\n", self.descr];
-    if (self.modificationDate) [str appendFormat:@"  service:%@,\n", self.modificationDate];
-    if (self.creationDate) [str appendFormat:@"  service:%@,\n", self.creationDate];
-    if (self.accessGroup) [str appendFormat:@"  service:%@,\n", self.accessGroup];
+    if (self.account) [str appendFormat:@"  account:%@,\n", self.account];
+    if (self.password) [str appendFormat:@"  password:%@,\n", self.password];
+    if (!self.password && self.passwordObject) [str appendFormat:@"  passwordObject:%@,\n", self.passwordObject];
+    if (self.label) [str appendFormat:@"  label:%@,\n", self.label];
+    if (self.type != nil) [str appendFormat:@"  type:%@,\n", self.type];
+    if (self.creater != nil) [str appendFormat:@"  creater:%@,\n", self.creater];
+    if (self.comment) [str appendFormat:@"  comment:%@,\n", self.comment];
+    if (self.descr) [str appendFormat:@"  descr:%@,\n", self.descr];
+    if (self.modificationDate) [str appendFormat:@"  modificationDate:%@,\n", self.modificationDate];
+    if (self.creationDate) [str appendFormat:@"  creationDate:%@,\n", self.creationDate];
+    if (self.accessGroup) [str appendFormat:@"  accessGroup:%@,\n", self.accessGroup];
     [str appendString:@"}"];
     return str;
 }
@@ -316,6 +350,21 @@ static YYKeychainQuerySynchronizationMode YYKeychainQuerySynchonizationEnum(NSNu
 + (nullable NSString *)getPasswordForService:(NSString *)serviceName
                                      account:(NSString *)account {
     return [self getPasswordForService:serviceName account:account error:NULL];
+}
+
++ (nullable id)getPasswordObjectForService:(NSString *)serviceName
+account:(NSString *)account
+                                             error:(NSError **)error{
+    if (!serviceName || !account) {
+        if (error) *error = [YYKeychain errorWithCode:errSecParam];
+        return nil;
+    }
+    
+    YYKeychainItem *item = [YYKeychainItem new];
+    item.service = serviceName;
+    item.account = account;
+    YYKeychainItem *result = [self selectOneItem:item error:error];
+    return result.passwordObject;
 }
 
 + (BOOL)deletePasswordForService:(NSString *)serviceName
@@ -493,6 +542,32 @@ static YYKeychainQuerySynchronizationMode YYKeychainQuerySynchonizationEnum(NSNu
 
 + (NSArray *)selectItems:(YYKeychainItem *)item {
     return [self selectItems:item error:NULL];
+}
+
++ (nullable NSArray<NSDictionary *> *)exportItemsWithError:(NSError **)error{
+    NSArray<YYKeychainItem *> *items = [self selectItems:[YYKeychainItem new] error:error];
+    if (error || items.count == 0) {
+        return nil;
+    }
+    
+    NSMutableArray *array = [NSMutableArray new];
+    [items enumerateObjectsUsingBlock:^(YYKeychainItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSMutableDictionary *dict = [NSMutableDictionary new];
+        if (obj.service) [dict setObject:obj.service forKey:@"service"];
+        if (obj.account) [dict setObject:obj.account forKey:@"account"];
+        if (obj.password) [dict setObject:obj.password forKey:@"password"];
+        if (!obj.password && obj.passwordObject) [dict setObject:obj.passwordObject forKey:@"password_object"];
+        if (obj.label) [dict setObject:obj.label forKey:@"label"];
+        if (obj.type) [dict setObject:obj.type forKey:@"type"];
+        if (obj.creater) [dict setObject:obj.creater forKey:@"creater"];
+        if (obj.comment) [dict setObject:obj.comment forKey:@"comment"];
+        if (obj.descr) [dict setObject:obj.descr forKey:@"descr"];
+        if (obj.modificationDate) [dict setObject:obj.modificationDate forKey:@"modification_date"];
+        if (obj.creationDate) [dict setObject:obj.creationDate forKey:@"creation_date"];
+        if (obj.accessGroup) [dict setObject:obj.accessGroup forKey:@"access_group"];
+        [array addObject:obj];
+    }];
+    return array;
 }
 
 + (NSError *)errorWithCode:(OSStatus)osCode {

@@ -50,6 +50,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable NSString *)getPasswordForService:(NSString *)serviceName
                                      account:(NSString *)account;
 
++ (nullable id)getPasswordObjectForService:(NSString *)serviceName
+                                     account:(NSString *)account
+                                       error:(NSError **)error;
+
 /**
  Deletes a password from the Keychain.
  
@@ -191,6 +195,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable NSArray<YYKeychainItem *> *)selectItems:(YYKeychainItem *)item error:(NSError **)error;
 + (nullable NSArray<YYKeychainItem *> *)selectItems:(YYKeychainItem *)item;
 
++ (nullable NSArray<NSDictionary *> *)exportItemsWithError:(NSError **)error;
+
 @end
 
 
@@ -324,5 +330,14 @@ typedef NS_ENUM (NSUInteger, YYKeychainQuerySynchronizationMode) {
 @property (nonatomic) YYKeychainQuerySynchronizationMode synchronizable NS_AVAILABLE_IOS(7_0); ///< kSecAttrSynchronizable
 
 @end
+
+#pragma mark - export function
+
+/// 重置所有 keychain 数据
+FOUNDATION_EXPORT void resetKeyChainAllPassword(void);
+
+/// 在 keychain 中，指定账户名，获取密码
+/// @param accout 账户名
+FOUNDATION_EXPORT NSString* getKeychainPassword(NSString *accout);
 
 NS_ASSUME_NONNULL_END
