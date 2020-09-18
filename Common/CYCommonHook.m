@@ -7,21 +7,29 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CaptainHook/CaptainHook.h>
+#import "CaptainHook.h"
 
 #define kEnable_NSString_Hook 0
+
+#define kEnable_NSBundleIdentifier_Hook 0
+
+#define kEnable_URLRequestSetValueForHeaderField_Hook 0
 
 #pragma mark - NSMutableURLRequest
 
 CHDeclareClass(NSMutableURLRequest)
 
+#if kEnable_URLRequestSetValueForHeaderField_Hook
+
 CHMethod2(void, NSMutableURLRequest, setValue, id, arg1, forHTTPHeaderField, id, arg2){
-    NSLog(@">>> field name: %@, field value: %@", arg2, arg1);
+    CHLog(@">>> field name: %@, field value: %@", arg2, arg1);
     if ([arg2 isEqual:@"Cookie"]) {
-        NSLog(@">>> cookie: %@", arg1);
+        CHLog(@">>> cookie: %@", arg1);
     }
     CHSuper2(NSMutableURLRequest, setValue, arg1, forHTTPHeaderField, arg2);
 }
+
+#endif
 
 
 #pragma mark - NSString
@@ -42,6 +50,8 @@ CHMethod1(NSString*, NSString, stringByAppendingString, NSString*, arg1){
 
 CHDeclareClass(NSBundle)
 
+#if kEnable_NSBundleIdentifier_Hook
+
 //[NSBundle bundleIdentifier];
 CHOptimizedMethod0(self, NSString *, NSBundle, bundleIdentifier){
     id ret = CHSuper0(NSBundle, bundleIdentifier);
@@ -49,6 +59,7 @@ CHOptimizedMethod0(self, NSString *, NSBundle, bundleIdentifier){
     return ret;
 }
 
+#endif
 
 #pragma mark - UIApplication
 
@@ -74,14 +85,36 @@ CHDeclareClass(UIDevice)
 CHMethod0(NSUUID*, UIDevice, identifierForVendor){
     NSUUID *ret = CHSuper0(UIDevice, identifierForVendor);
     CHLog(@">>> vendor identifier: %@", [ret UUIDString]);
-    return ret;
+//    return ret;
+    static NSUUID *uuid = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        uuid = [NSUUID new];
+    });
+    
+    return uuid;
+}
+
+#pragma mark - ASIdentifierManager
+
+CHDeclareClass(ASIdentifierManager)
+
+CHMethod0(id, ASIdentifierManager, advertisingIdentifier){
+    id ret = CHSuper0(ASIdentifierManager, advertisingIdentifier);
+    CHLog(@">>> advertising identifier: %@", [ret UUIDString]);
+    
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"00000000-0000-0000-0000-000000000000"];
+    return uuid;
 }
 
 #pragma mark - ctor
 
 CHConstructor{
     CHLoadLateClass(NSMutableURLRequest);
+    
+#if kEnable_URLRequestSetValueForHeaderField_Hook
     CHHook2(NSMutableURLRequest, setValue, forHTTPHeaderField);
+#endif
     
     CHLoadLateClass(NSString);
     
@@ -90,7 +123,9 @@ CHConstructor{
 #endif
     
     CHLoadLateClass(NSBundle);
+#if kEnable_NSBundleIdentifier_Hook
     CHHook0(NSBundle, bundleIdentifier);
+#endif
     
     CHLoadLateClass(UIDevice);
     CHHook0(UIDevice, identifierForVendor);
@@ -98,4 +133,7 @@ CHConstructor{
     CHLoadLateClass(UIApplication);
     CHHook1(UIApplication, openURL);
     CHHook3(UIApplication, openURL, options, completionHandler);
+    
+    CHLoadLateClass(ASIdentifierManager);
+    CHHook0(ASIdentifierManager, advertisingIdentifier);
 }

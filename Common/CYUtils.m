@@ -6,10 +6,8 @@
 //
 
 #import "CYUtils.h"
-#import <objc/objc-runtime.h>
+#import <objc/runtime.h>
 #import <objc/message.h>
-#import "YYKeychain.h"
-#import <Security/Security.h>
 #import <CommonCrypto/CommonCrypto.h>
 
 static NSString *const kMobilePath = @"/var/mobile/";
@@ -136,41 +134,6 @@ void saveStringToFile(NSString *aStr, NSString* appName, NSString* type){
     }
 }
 
-#pragma mark - KeyChain
-
-void resetKeyChainAllPassword(void){
-    NSMutableDictionary *query = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                  (__bridge id)kCFBooleanTrue, (__bridge id)kSecReturnAttributes,
-                                  (__bridge id)kSecMatchLimitAll, (__bridge id)kSecMatchLimit,
-                                  nil];
-    NSArray *secItemClasses = [NSArray arrayWithObjects:
-                               (__bridge id)kSecClassGenericPassword,
-                               (__bridge id)kSecClassInternetPassword,
-                               (__bridge id)kSecClassCertificate,
-                               (__bridge id)kSecClassKey,
-                               (__bridge id)kSecClassIdentity,
-                               nil];
-    for (id secItemClass in secItemClasses) {
-        [query setObject:secItemClass forKey:(__bridge id)kSecClass];
-        
-        CFTypeRef result = NULL;
-        SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
-        if (result != NULL) CFRelease(result);
-        
-        NSDictionary *spec = @{(__bridge id)kSecClass: secItemClass};
-        SecItemDelete((__bridge CFDictionaryRef)spec);
-    }
-}
-
-NSString* getKeychainPassword(NSString *accout){
-    YYKeychainItem *item = [[YYKeychainItem alloc] init];
-    item.service = accout;
-    item.account = accout;
-//    item.accessGroup = @"B83JBVZ6M5.com.baidu.baidumobile.cuid"; //可选项
-    id password = [YYKeychain selectOneItem:item].passwordObject;
-    return password;
-}
-
 #pragma mark - Cookie
 
 void clearAllCookies(){
@@ -178,7 +141,16 @@ void clearAllCookies(){
     for (NSHTTPCookie *cookie in [storage cookies]){
         [storage deleteCookie:cookie];
     }
-    [[NSURLCache sharedURLCache] removeAllCachedResponses]; //缓存web清除
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+}
+
+#pragma mark - Other
+
+NSString* generateUUID(void){
+    NSString *uuid = [[[NSUUID alloc] init] UUIDString];
+    uuid = [uuid stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    uuid = [uuid lowercaseString];
+    return uuid;
 }
 
 #pragma mark - CYUtils

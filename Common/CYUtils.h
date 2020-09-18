@@ -35,14 +35,6 @@ FOUNDATION_EXPORT id objectValueForKey(id obj, NSString *key);
 /// 使用 objc_msgSend 方法调用 setValue:forKey:
 FOUNDATION_EXPORT id setObjectValueForKey(id obj, NSString *key, id value);
 
-#pragma mark - KeyChain
-
-/// 重置所有 keychain 数据
-FOUNDATION_EXPORT void resetKeyChainAllPassword(void);
-
-/// 在 keychain 中，指定账户名，获取密码
-/// @param accout 账户名
-FOUNDATION_EXPORT NSString* getKeychainPassword(NSString *accout);
 
 #pragma mark - App Version
 
@@ -65,6 +57,10 @@ FOUNDATION_EXPORT NSData *dataWithBase64String(NSString *str);
 #pragma mark - Cookie
 
 FOUNDATION_EXPORT void clearAllCookies(void);
+
+#pragma mark - Other
+
+FOUNDATION_EXPORT NSString* generateUUID(void);
 
 
 @interface CYUtils : NSObject
