@@ -1,0 +1,17 @@
+Package: com.jiaxw.WeiboTweak
+Name: WeiboOverseasTweak
+Version: 0.1-1
+Description: A WeiboOverseas tweak, grab followers of a user, and save to sqlite  db file.
+Section: Tweaks
+Depends: firmware (>= 5.0), mobilesubstrate
+Conflicts: 
+Replaces: 
+Priority: optional
+Architecture: iphoneos-arm
+Author: jiaxw
+dev: 
+Homepage: 
+Depiction: 
+Maintainer: 
+Icon: 
+

@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3740862324EBD4390032DC37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3740862224EBD4390032DC37 /* Foundation.framework */; };
+		374CCC4525159EC400680D75 /* WeiboTweak.mm in Sources */ = {isa = PBXBuildFile; fileRef = 374CCC4125159EC400680D75 /* WeiboTweak.mm */; };
+		374CCC4625159EC400680D75 /* WeiboTweak-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 374CCC4225159EC400680D75 /* WeiboTweak-Prefix.pch */; };
+		374CCC4725159EC400680D75 /* WBUserFansModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 374CCC4325159EC400680D75 /* WBUserFansModel.m */; };
+		374CCC4825159EC400680D75 /* WBUserFansModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 374CCC4425159EC400680D75 /* WBUserFansModel.h */; };
+		374CCC6625159EF600680D75 /* CYUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 374CCC4C25159EF600680D75 /* CYUtils.h */; };
+		374CCC6825159EF600680D75 /* AFNetWorkingCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 374CCC4E25159EF600680D75 /* AFNetWorkingCallback.h */; };
+		374CCC6C25159EF600680D75 /* AFNetWorkingCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 374CCC5225159EF600680D75 /* AFNetWorkingCallback.m */; };
+		374CCC6E25159EF600680D75 /* CYUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 374CCC5425159EF600680D75 /* CYUtils.m */; };
+		374CCC7025159EF600680D75 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 374CCC5725159EF600680D75 /* FMDatabase.h */; };
+		374CCC7125159EF600680D75 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 374CCC5825159EF600680D75 /* FMDatabaseQueue.m */; };
+		374CCC7225159EF600680D75 /* CYDatabaseManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 374CCC5925159EF600680D75 /* CYDatabaseManager.h */; };
+		374CCC7325159EF600680D75 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 374CCC5A25159EF600680D75 /* FMResultSet.h */; };
+		374CCC7425159EF600680D75 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 374CCC5B25159EF600680D75 /* FMDatabaseAdditions.m */; };
+		374CCC7525159EF600680D75 /* CYDatabaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 374CCC5C25159EF600680D75 /* CYDatabaseModel.m */; };
+		374CCC7625159EF600680D75 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 374CCC5D25159EF600680D75 /* FMDatabase.m */; };
+		374CCC7725159EF600680D75 /* CYDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 374CCC5E25159EF600680D75 /* CYDatabaseManager.m */; };
+		374CCC7825159EF600680D75 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 374CCC5F25159EF600680D75 /* FMDatabaseQueue.h */; };
+		374CCC7925159EF600680D75 /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 374CCC6025159EF600680D75 /* FMDB.h */; };
+		374CCC7A25159EF600680D75 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 374CCC6125159EF600680D75 /* FMDatabaseAdditions.h */; };
+		374CCC7B25159EF600680D75 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 374CCC6225159EF600680D75 /* FMResultSet.m */; };
+		374CCC7C25159EF600680D75 /* CYDatabaseModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 374CCC6325159EF600680D75 /* CYDatabaseModel.h */; };
+		3756ED0A250FA2A2007589A2 /* YYClassInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3756ED05250FA2A1007589A2 /* YYClassInfo.h */; };
+		3756ED0B250FA2A2007589A2 /* YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3756ED06250FA2A1007589A2 /* YYModel.h */; };
+		3756ED0C250FA2A2007589A2 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756ED07250FA2A1007589A2 /* NSObject+YYModel.m */; };
+		3756ED0D250FA2A2007589A2 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756ED08250FA2A1007589A2 /* YYClassInfo.m */; };
+		3756ED0E250FA2A2007589A2 /* NSObject+YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3756ED09250FA2A1007589A2 /* NSObject+YYModel.h */; };
+		375B347B250D1B79004012DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375B347A250D1B79004012DD /* UIKit.framework */; platformFilter = ios; };
+		37D7DF4F24FE6DF800AE48F0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D7DF4E24FE6DF800AE48F0 /* Security.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3740861F24EBD4390032DC37 /* WeiboTweak.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = WeiboTweak.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		3740862224EBD4390032DC37 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3740862724EBD4390032DC37 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		3740862924EBD4390032DC37 /* WeiboTweak-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "WeiboTweak-Prefix.pch"; path = "../WeiboTweak-Prefix.pch"; sourceTree = "<group>"; };
+		3740862F24EBD4390032DC37 /* WeiboTweak.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WeiboTweak.plist; sourceTree = "<group>"; };
+		374CCC4125159EC400680D75 /* WeiboTweak.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WeiboTweak.mm; sourceTree = "<group>"; };
+		374CCC4225159EC400680D75 /* WeiboTweak-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WeiboTweak-Prefix.pch"; sourceTree = "<group>"; };
+		374CCC4325159EC400680D75 /* WBUserFansModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBUserFansModel.m; sourceTree = "<group>"; };
+		374CCC4425159EC400680D75 /* WBUserFansModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBUserFansModel.h; sourceTree = "<group>"; };
+		374CCC4C25159EF600680D75 /* CYUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYUtils.h; sourceTree = "<group>"; };
+		374CCC4E25159EF600680D75 /* AFNetWorkingCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetWorkingCallback.h; sourceTree = "<group>"; };
+		374CCC5225159EF600680D75 /* AFNetWorkingCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetWorkingCallback.m; sourceTree = "<group>"; };
+		374CCC5425159EF600680D75 /* CYUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYUtils.m; sourceTree = "<group>"; };
+		374CCC5725159EF600680D75 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		374CCC5825159EF600680D75 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		374CCC5925159EF600680D75 /* CYDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYDatabaseManager.h; sourceTree = "<group>"; };
+		374CCC5A25159EF600680D75 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		374CCC5B25159EF600680D75 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		374CCC5C25159EF600680D75 /* CYDatabaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYDatabaseModel.m; sourceTree = "<group>"; };
+		374CCC5D25159EF600680D75 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		374CCC5E25159EF600680D75 /* CYDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYDatabaseManager.m; sourceTree = "<group>"; };
+		374CCC5F25159EF600680D75 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		374CCC6025159EF600680D75 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		374CCC6125159EF600680D75 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		374CCC6225159EF600680D75 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		374CCC6325159EF600680D75 /* CYDatabaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYDatabaseModel.h; sourceTree = "<group>"; };
+		3756ED05250FA2A1007589A2 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
+		3756ED06250FA2A1007589A2 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
+		3756ED07250FA2A1007589A2 /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
+		3756ED08250FA2A1007589A2 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
+		3756ED09250FA2A1007589A2 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
+		375B347A250D1B79004012DD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		37D7DF4E24FE6DF800AE48F0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3740861B24EBD4390032DC37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37D7DF4F24FE6DF800AE48F0 /* Security.framework in Frameworks */,
+				375B347B250D1B79004012DD /* UIKit.framework in Frameworks */,
+				3740862324EBD4390032DC37 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3740861524EBD4390032DC37 = {
+			isa = PBXGroup;
+			children = (
+				3740862424EBD4390032DC37 /* WeiboTweak */,
+				3740862124EBD4390032DC37 /* Frameworks */,
+				3740862024EBD4390032DC37 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3740862024EBD4390032DC37 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3740861F24EBD4390032DC37 /* WeiboTweak.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3740862124EBD4390032DC37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				375B347A250D1B79004012DD /* UIKit.framework */,
+				37D7DF4E24FE6DF800AE48F0 /* Security.framework */,
+				3740862224EBD4390032DC37 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3740862424EBD4390032DC37 /* WeiboTweak */ = {
+			isa = PBXGroup;
+			children = (
+				374CCC4925159EF600680D75 /* Common */,
+				374CCC5625159EF600680D75 /* CYDatabase */,
+				3740862524EBD4390032DC37 /* Package */,
+				3740862824EBD4390032DC37 /* Supporting Files */,
+				374CCC4425159EC400680D75 /* WBUserFansModel.h */,
+				374CCC4325159EC400680D75 /* WBUserFansModel.m */,
+				374CCC4225159EC400680D75 /* WeiboTweak-Prefix.pch */,
+				374CCC4125159EC400680D75 /* WeiboTweak.mm */,
+				3756ED04250FA2A1007589A2 /* YYModel */,
+			);
+			path = WeiboTweak;
+			sourceTree = "<group>";
+		};
+		3740862524EBD4390032DC37 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				3740862624EBD4390032DC37 /* DEBIAN */,
+				3740862C24EBD4390032DC37 /* Library */,
+			);
+			path = Package;
+			sourceTree = "<group>";
+		};
+		3740862624EBD4390032DC37 /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				3740862724EBD4390032DC37 /* control */,
+			);
+			path = DEBIAN;
+			sourceTree = "<group>";
+		};
+		3740862824EBD4390032DC37 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3740862924EBD4390032DC37 /* WeiboTweak-Prefix.pch */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3740862C24EBD4390032DC37 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				3740862D24EBD4390032DC37 /* MobileSubstrate */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		3740862D24EBD4390032DC37 /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				3740862E24EBD4390032DC37 /* DynamicLibraries */,
+			);
+			path = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		3740862E24EBD4390032DC37 /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				3740862F24EBD4390032DC37 /* WeiboTweak.plist */,
+			);
+			path = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+		374CCC4925159EF600680D75 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				374CCC4E25159EF600680D75 /* AFNetWorkingCallback.h */,
+				374CCC5225159EF600680D75 /* AFNetWorkingCallback.m */,
+				374CCC4C25159EF600680D75 /* CYUtils.h */,
+				374CCC5425159EF600680D75 /* CYUtils.m */,
+			);
+			name = Common;
+			path = ../../Common;
+			sourceTree = "<group>";
+		};
+		374CCC5625159EF600680D75 /* CYDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				374CCC5725159EF600680D75 /* FMDatabase.h */,
+				374CCC5825159EF600680D75 /* FMDatabaseQueue.m */,
+				374CCC5925159EF600680D75 /* CYDatabaseManager.h */,
+				374CCC5A25159EF600680D75 /* FMResultSet.h */,
+				374CCC5B25159EF600680D75 /* FMDatabaseAdditions.m */,
+				374CCC5C25159EF600680D75 /* CYDatabaseModel.m */,
+				374CCC5D25159EF600680D75 /* FMDatabase.m */,
+				374CCC5E25159EF600680D75 /* CYDatabaseManager.m */,
+				374CCC5F25159EF600680D75 /* FMDatabaseQueue.h */,
+				374CCC6025159EF600680D75 /* FMDB.h */,
+				374CCC6125159EF600680D75 /* FMDatabaseAdditions.h */,
+				374CCC6225159EF600680D75 /* FMResultSet.m */,
+				374CCC6325159EF600680D75 /* CYDatabaseModel.h */,
+			);
+			name = CYDatabase;
+			path = ../../CYDatabase;
+			sourceTree = "<group>";
+		};
+		3756ED04250FA2A1007589A2 /* YYModel */ = {
+			isa = PBXGroup;
+			children = (
+				3756ED09250FA2A1007589A2 /* NSObject+YYModel.h */,
+				3756ED07250FA2A1007589A2 /* NSObject+YYModel.m */,
+				3756ED05250FA2A1007589A2 /* YYClassInfo.h */,
+				3756ED08250FA2A1007589A2 /* YYClassInfo.m */,
+				3756ED06250FA2A1007589A2 /* YYModel.h */,
+			);
+			path = YYModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3740861C24EBD4390032DC37 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				374CCC6825159EF600680D75 /* AFNetWorkingCallback.h in Headers */,
+				374CCC7325159EF600680D75 /* FMResultSet.h in Headers */,
+				374CCC4825159EC400680D75 /* WBUserFansModel.h in Headers */,
+				374CCC7225159EF600680D75 /* CYDatabaseManager.h in Headers */,
+				374CCC7025159EF600680D75 /* FMDatabase.h in Headers */,
+				374CCC7925159EF600680D75 /* FMDB.h in Headers */,
+				374CCC7825159EF600680D75 /* FMDatabaseQueue.h in Headers */,
+				3756ED0B250FA2A2007589A2 /* YYModel.h in Headers */,
+				3756ED0A250FA2A2007589A2 /* YYClassInfo.h in Headers */,
+				374CCC7A25159EF600680D75 /* FMDatabaseAdditions.h in Headers */,
+				374CCC7C25159EF600680D75 /* CYDatabaseModel.h in Headers */,
+				3756ED0E250FA2A2007589A2 /* NSObject+YYModel.h in Headers */,
+				374CCC4625159EC400680D75 /* WeiboTweak-Prefix.pch in Headers */,
+				374CCC6625159EF600680D75 /* CYUtils.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3740861E24EBD4390032DC37 /* WeiboTweak */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3740863224EBD4390032DC37 /* Build configuration list for PBXNativeTarget "WeiboTweak" */;
+			buildPhases = (
+				3740861A24EBD4390032DC37 /* Sources */,
+				3740861B24EBD4390032DC37 /* Frameworks */,
+				3740861C24EBD4390032DC37 /* Headers */,
+				3740861D24EBD4390032DC37 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WeiboTweak;
+			productName = WeiboTweak;
+			productReference = 3740861F24EBD4390032DC37 /* WeiboTweak.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3740861624EBD4390032DC37 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1140;
+				TargetAttributes = {
+					3740861E24EBD4390032DC37 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 3740861924EBD4390032DC37 /* Build configuration list for PBXProject "WeiboTweak" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3740861524EBD4390032DC37;
+			productRefGroup = 3740862024EBD4390032DC37 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3740861E24EBD4390032DC37 /* WeiboTweak */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3740861D24EBD4390032DC37 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/MonkeyDev/bin/md --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3740861A24EBD4390032DC37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				374CCC4525159EC400680D75 /* WeiboTweak.mm in Sources */,
+				374CCC4725159EC400680D75 /* WBUserFansModel.m in Sources */,
+				374CCC7625159EF600680D75 /* FMDatabase.m in Sources */,
+				3756ED0C250FA2A2007589A2 /* NSObject+YYModel.m in Sources */,
+				374CCC7B25159EF600680D75 /* FMResultSet.m in Sources */,
+				374CCC6E25159EF600680D75 /* CYUtils.m in Sources */,
+				374CCC6C25159EF600680D75 /* AFNetWorkingCallback.m in Sources */,
+				374CCC7125159EF600680D75 /* FMDatabaseQueue.m in Sources */,
+				3756ED0D250FA2A2007589A2 /* YYClassInfo.m in Sources */,
+				374CCC7525159EF600680D75 /* CYDatabaseModel.m in Sources */,
+				374CCC7725159EF600680D75 /* CYDatabaseManager.m in Sources */,
+				374CCC7425159EF600680D75 /* FMDatabaseAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3740863024EBD4390032DC37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(MonkeyDevPath)/frameworks/**",
+					"$(MonkeyDevTheosPath)/vendor/lib",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/lib/**";
+				MonkeyDevPath = /opt/MonkeyDev;
+				MonkeyDevTheosPath = /opt/theos;
+				OTHER_CFLAGS = "-DTHEOS_INSTANCE_NAME=\"\\\"WeiboTweak\\\"\"";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3740863124EBD4390032DC37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(MonkeyDevPath)/frameworks/**",
+					"$(MonkeyDevTheosPath)/vendor/lib",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/lib/**";
+				MonkeyDevPath = /opt/MonkeyDev;
+				MonkeyDevTheosPath = /opt/theos;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-DTHEOS_INSTANCE_NAME=\"\\\"WeiboTweak\\\"\"";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		3740863324EBD4390032DC37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(MonkeyDevPath)/frameworks/**",
+					"$(MonkeyDevTheosPath)/vendor/lib",
+					/usr/lib,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WeiboTweak/WeiboTweak-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(MonkeyDevPath)/include",
+					"$(MonkeyDevTheosPath)/vendor/include/**",
+				);
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				MonkeyDevBuildPackageOnAnyBuild = NO;
+				MonkeyDevClearUiCacheOnInstall = NO;
+				MonkeyDevCopyOnBuild = NO;
+				MonkeyDevDeviceIP = localhost;
+				MonkeyDevDevicePassword = admin;
+				MonkeyDevDevicePort = 2222;
+				MonkeyDevInstallOnAnyBuild = YES;
+				MonkeyDevInstallOnProfiling = YES;
+				MonkeyDevkillProcessOnInstall = SpringBoard;
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-lsqlite3",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3740863424EBD4390032DC37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(MonkeyDevPath)/frameworks/**",
+					"$(MonkeyDevTheosPath)/vendor/lib",
+					/usr/lib,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WeiboTweak/WeiboTweak-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(MonkeyDevPath)/include",
+					"$(MonkeyDevTheosPath)/vendor/include/**",
+				);
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				MonkeyDevBuildPackageOnAnyBuild = NO;
+				MonkeyDevClearUiCacheOnInstall = NO;
+				MonkeyDevCopyOnBuild = NO;
+				MonkeyDevDeviceIP = localhost;
+				MonkeyDevDevicePassword = admin;
+				MonkeyDevDevicePort = 2222;
+				MonkeyDevInstallOnAnyBuild = YES;
+				MonkeyDevInstallOnProfiling = YES;
+				MonkeyDevkillProcessOnInstall = SpringBoard;
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-lsqlite3",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3740861924EBD4390032DC37 /* Build configuration list for PBXProject "WeiboTweak" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3740863024EBD4390032DC37 /* Release */,
+				3740863124EBD4390032DC37 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3740863224EBD4390032DC37 /* Build configuration list for PBXNativeTarget "WeiboTweak" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3740863324EBD4390032DC37 /* Release */,
+				3740863424EBD4390032DC37 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3740861624EBD4390032DC37 /* Project object */;
+}
