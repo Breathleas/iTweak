@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		373E74C72517963900105BED /* YYClassInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 373E74C22517963900105BED /* YYClassInfo.h */; };
+		373E74C82517963900105BED /* YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 373E74C32517963900105BED /* YYModel.h */; };
+		373E74C92517963900105BED /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 373E74C42517963900105BED /* NSObject+YYModel.m */; };
+		373E74CA2517963900105BED /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 373E74C52517963900105BED /* YYClassInfo.m */; };
+		373E74CB2517963900105BED /* NSObject+YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 373E74C62517963900105BED /* NSObject+YYModel.h */; };
 		3740862324EBD4390032DC37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3740862224EBD4390032DC37 /* Foundation.framework */; };
 		374CCC4525159EC400680D75 /* WeiboTweak.mm in Sources */ = {isa = PBXBuildFile; fileRef = 374CCC4125159EC400680D75 /* WeiboTweak.mm */; };
 		374CCC4625159EC400680D75 /* WeiboTweak-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 374CCC4225159EC400680D75 /* WeiboTweak-Prefix.pch */; };
@@ -29,16 +34,16 @@
 		374CCC7A25159EF600680D75 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 374CCC6125159EF600680D75 /* FMDatabaseAdditions.h */; };
 		374CCC7B25159EF600680D75 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 374CCC6225159EF600680D75 /* FMResultSet.m */; };
 		374CCC7C25159EF600680D75 /* CYDatabaseModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 374CCC6325159EF600680D75 /* CYDatabaseModel.h */; };
-		3756ED0A250FA2A2007589A2 /* YYClassInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3756ED05250FA2A1007589A2 /* YYClassInfo.h */; };
-		3756ED0B250FA2A2007589A2 /* YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3756ED06250FA2A1007589A2 /* YYModel.h */; };
-		3756ED0C250FA2A2007589A2 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756ED07250FA2A1007589A2 /* NSObject+YYModel.m */; };
-		3756ED0D250FA2A2007589A2 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756ED08250FA2A1007589A2 /* YYClassInfo.m */; };
-		3756ED0E250FA2A2007589A2 /* NSObject+YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3756ED09250FA2A1007589A2 /* NSObject+YYModel.h */; };
 		375B347B250D1B79004012DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375B347A250D1B79004012DD /* UIKit.framework */; platformFilter = ios; };
 		37D7DF4F24FE6DF800AE48F0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D7DF4E24FE6DF800AE48F0 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		373E74C22517963900105BED /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
+		373E74C32517963900105BED /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
+		373E74C42517963900105BED /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
+		373E74C52517963900105BED /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
+		373E74C62517963900105BED /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
 		3740861F24EBD4390032DC37 /* WeiboTweak.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = WeiboTweak.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		3740862224EBD4390032DC37 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3740862724EBD4390032DC37 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
@@ -65,11 +70,6 @@
 		374CCC6125159EF600680D75 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
 		374CCC6225159EF600680D75 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		374CCC6325159EF600680D75 /* CYDatabaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYDatabaseModel.h; sourceTree = "<group>"; };
-		3756ED05250FA2A1007589A2 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
-		3756ED06250FA2A1007589A2 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
-		3756ED07250FA2A1007589A2 /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
-		3756ED08250FA2A1007589A2 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
-		3756ED09250FA2A1007589A2 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
 		375B347A250D1B79004012DD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37D7DF4E24FE6DF800AE48F0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -88,6 +88,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		373E74C12517963900105BED /* YYModel */ = {
+			isa = PBXGroup;
+			children = (
+				373E74C22517963900105BED /* YYClassInfo.h */,
+				373E74C32517963900105BED /* YYModel.h */,
+				373E74C42517963900105BED /* NSObject+YYModel.m */,
+				373E74C52517963900105BED /* YYClassInfo.m */,
+				373E74C62517963900105BED /* NSObject+YYModel.h */,
+			);
+			name = YYModel;
+			path = ../../YYModel;
+			sourceTree = "<group>";
+		};
 		3740861524EBD4390032DC37 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +131,7 @@
 		3740862424EBD4390032DC37 /* WeiboTweak */ = {
 			isa = PBXGroup;
 			children = (
+				373E74C12517963900105BED /* YYModel */,
 				374CCC4925159EF600680D75 /* Common */,
 				374CCC5625159EF600680D75 /* CYDatabase */,
 				3740862524EBD4390032DC37 /* Package */,
@@ -126,7 +140,6 @@
 				374CCC4325159EC400680D75 /* WBUserFansModel.m */,
 				374CCC4225159EC400680D75 /* WeiboTweak-Prefix.pch */,
 				374CCC4125159EC400680D75 /* WeiboTweak.mm */,
-				3756ED04250FA2A1007589A2 /* YYModel */,
 			);
 			path = WeiboTweak;
 			sourceTree = "<group>";
@@ -213,18 +226,6 @@
 			path = ../../CYDatabase;
 			sourceTree = "<group>";
 		};
-		3756ED04250FA2A1007589A2 /* YYModel */ = {
-			isa = PBXGroup;
-			children = (
-				3756ED09250FA2A1007589A2 /* NSObject+YYModel.h */,
-				3756ED07250FA2A1007589A2 /* NSObject+YYModel.m */,
-				3756ED05250FA2A1007589A2 /* YYClassInfo.h */,
-				3756ED08250FA2A1007589A2 /* YYClassInfo.m */,
-				3756ED06250FA2A1007589A2 /* YYModel.h */,
-			);
-			path = YYModel;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -232,18 +233,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				373E74C82517963900105BED /* YYModel.h in Headers */,
 				374CCC6825159EF600680D75 /* AFNetWorkingCallback.h in Headers */,
 				374CCC7325159EF600680D75 /* FMResultSet.h in Headers */,
 				374CCC4825159EC400680D75 /* WBUserFansModel.h in Headers */,
 				374CCC7225159EF600680D75 /* CYDatabaseManager.h in Headers */,
 				374CCC7025159EF600680D75 /* FMDatabase.h in Headers */,
+				373E74CB2517963900105BED /* NSObject+YYModel.h in Headers */,
 				374CCC7925159EF600680D75 /* FMDB.h in Headers */,
 				374CCC7825159EF600680D75 /* FMDatabaseQueue.h in Headers */,
-				3756ED0B250FA2A2007589A2 /* YYModel.h in Headers */,
-				3756ED0A250FA2A2007589A2 /* YYClassInfo.h in Headers */,
+				373E74C72517963900105BED /* YYClassInfo.h in Headers */,
 				374CCC7A25159EF600680D75 /* FMDatabaseAdditions.h in Headers */,
 				374CCC7C25159EF600680D75 /* CYDatabaseModel.h in Headers */,
-				3756ED0E250FA2A2007589A2 /* NSObject+YYModel.h in Headers */,
 				374CCC4625159EC400680D75 /* WeiboTweak-Prefix.pch in Headers */,
 				374CCC6625159EF600680D75 /* CYUtils.h in Headers */,
 			);
@@ -329,13 +330,13 @@
 				374CCC4525159EC400680D75 /* WeiboTweak.mm in Sources */,
 				374CCC4725159EC400680D75 /* WBUserFansModel.m in Sources */,
 				374CCC7625159EF600680D75 /* FMDatabase.m in Sources */,
-				3756ED0C250FA2A2007589A2 /* NSObject+YYModel.m in Sources */,
 				374CCC7B25159EF600680D75 /* FMResultSet.m in Sources */,
+				373E74CA2517963900105BED /* YYClassInfo.m in Sources */,
 				374CCC6E25159EF600680D75 /* CYUtils.m in Sources */,
 				374CCC6C25159EF600680D75 /* AFNetWorkingCallback.m in Sources */,
 				374CCC7125159EF600680D75 /* FMDatabaseQueue.m in Sources */,
-				3756ED0D250FA2A2007589A2 /* YYClassInfo.m in Sources */,
 				374CCC7525159EF600680D75 /* CYDatabaseModel.m in Sources */,
+				373E74C92517963900105BED /* NSObject+YYModel.m in Sources */,
 				374CCC7725159EF600680D75 /* CYDatabaseManager.m in Sources */,
 				374CCC7425159EF600680D75 /* FMDatabaseAdditions.m in Sources */,
 			);
