@@ -9,6 +9,9 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 #import <CommonCrypto/CommonCrypto.h>
+#include <mach-o/dyld.h>
+#include <mach-o/nlist.h>
+#include <mach-o/getsect.h>
 
 static NSString *const kMobilePath = @"/var/mobile/";
 
@@ -151,6 +154,46 @@ NSString* generateUUID(void){
     uuid = [uuid stringByReplacingOccurrencesOfString:@"-" withString:@""];
     uuid = [uuid lowercaseString];
     return uuid;
+}
+
+#pragma mark - Mach-O
+
+static uintptr_t firstCmdAfterHeader(const struct mach_header* const header)
+{
+    switch(header->magic)
+    {
+        case MH_MAGIC:
+        case MH_CIGAM:
+            return (uintptr_t)(header + 1);
+        case MH_MAGIC_64:
+        case MH_CIGAM_64:
+            return (uintptr_t)(((struct mach_header_64*)header) + 1);
+        default:
+            // Header is corrupt
+            return 0;
+    }
+}
+
+uint32_t isMainImageEncrypted(void){
+    const struct mach_header* header = _dyld_get_image_header(0);
+    if(header != NULL)
+    {
+        uintptr_t cmdPtr = firstCmdAfterHeader(header);
+        if(cmdPtr != 0)
+        {
+            for(uint32_t iCmd = 0;iCmd < header->ncmds; iCmd++)
+            {
+                const struct load_command* loadCmd = (struct load_command*)cmdPtr;
+                if(loadCmd->cmd == LC_ENCRYPTION_INFO || loadCmd->cmd == LC_ENCRYPTION_INFO_64)
+                {
+                    struct encryption_info_command* encryptCmd = (struct encryption_info_command*)cmdPtr;
+                    return encryptCmd->cryptid;
+                }
+                cmdPtr += loadCmd->cmdsize;
+            }
+        }
+    }
+    return 0;
 }
 
 #pragma mark - CYUtils

@@ -58,10 +58,13 @@ FOUNDATION_EXPORT NSData *dataWithBase64String(NSString *str);
 
 FOUNDATION_EXPORT void clearAllCookies(void);
 
+#pragma mark - Mach-O
+
+FOUNDATION_EXPORT uint32_t isMainImageEncrypted(void);
+
 #pragma mark - Other
 
 FOUNDATION_EXPORT NSString* generateUUID(void);
-
 
 @interface CYUtils : NSObject
 

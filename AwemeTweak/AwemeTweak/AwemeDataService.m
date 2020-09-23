@@ -11,6 +11,7 @@
 #import "DYFollowModel.h"
 #import "DYUserProfileModel.h"
 #import "CYDatabaseManager.h"
+#import "CYDummyClass.h"
 
 #define kAweUserFollowerTable @"dy_user_follower"
 
@@ -242,4 +243,9 @@ __attribute__((constructor)) static void awe_initialization()
     createFollowTableWithName(kAweUserFollowingTable);
     
     createUserInfoTable();
+    
+    [CYDummyClass registFloatButtonClickHandler:^{
+        uint32_t crypt = isMainImageEncrypted();
+        NSLog(@">>> the mach-o file encrypt status: %u", crypt);
+    }];
 }

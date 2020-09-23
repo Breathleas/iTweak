@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3737E591251B6A3600502ECD /* CYDummyClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3737E58F251B6A3600502ECD /* CYDummyClass.m */; };
+		3737E592251B6A3600502ECD /* CYDummyClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 3737E590251B6A3600502ECD /* CYDummyClass.h */; };
 		374CCBE725148FF100680D75 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374CCBE625148FF100680D75 /* UIKit.framework */; };
 		374CCBE925148FF100680D75 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374CCBE825148FF100680D75 /* Foundation.framework */; };
 		374CCBEB25148FF100680D75 /* CydiaSubstrate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374CCBEA25148FF100680D75 /* CydiaSubstrate.framework */; };
@@ -42,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3737E58F251B6A3600502ECD /* CYDummyClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYDummyClass.m; sourceTree = "<group>"; };
+		3737E590251B6A3600502ECD /* CYDummyClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYDummyClass.h; sourceTree = "<group>"; };
 		374CCBE325148FF100680D75 /* AwemeTweak.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = AwemeTweak.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		374CCBE625148FF100680D75 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		374CCBE825148FF100680D75 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -200,6 +204,8 @@
 		374CCC972517062800680D75 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3737E590251B6A3600502ECD /* CYDummyClass.h */,
+				3737E58F251B6A3600502ECD /* CYDummyClass.m */,
 				374CCC9A2517062800680D75 /* CYUtils.h */,
 				374CCCA22517062800680D75 /* CYUtils.m */,
 			);
@@ -237,6 +243,7 @@
 			files = (
 				374CCCC72517065F00680D75 /* FMDB.h in Headers */,
 				374CCC862516E76100680D75 /* DYUserProfileModel.h in Headers */,
+				3737E592251B6A3600502ECD /* CYDummyClass.h in Headers */,
 				374CCCCD2517070300680D75 /* AwemeDataService.h in Headers */,
 				374CCCC82517065F00680D75 /* FMDatabaseAdditions.h in Headers */,
 				374CCC8A2516F52700680D75 /* DYFollowModel.h in Headers */,
@@ -361,6 +368,7 @@
 				374CCC942517058500680D75 /* NSObject+YYModel.m in Sources */,
 				374CCCC42517065F00680D75 /* FMDatabase.m in Sources */,
 				374CCCCE2517070300680D75 /* AwemeDataService.m in Sources */,
+				3737E591251B6A3600502ECD /* CYDummyClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
