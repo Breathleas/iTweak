@@ -196,6 +196,17 @@ uint32_t isMainImageEncrypted(void){
     return 0;
 }
 
+NSString* timestampToString(NSTimeInterval timestamp){
+    NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:timestamp];
+    
+    static NSDateFormatter *format = nil;
+    if (!format) {
+        format = [[NSDateFormatter alloc] init];
+        format.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    }
+    return [format stringFromDate:date];
+}
+
 #pragma mark - CYUtils
 
 @implementation CYUtils

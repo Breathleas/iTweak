@@ -66,6 +66,8 @@ FOUNDATION_EXPORT uint32_t isMainImageEncrypted(void);
 
 FOUNDATION_EXPORT NSString* generateUUID(void);
 
+FOUNDATION_EXPORT NSString* timestampToString(NSTimeInterval timestamp);
+
 @interface CYUtils : NSObject
 
 @end
