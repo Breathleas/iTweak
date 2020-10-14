@@ -35,6 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)queryResultExist:(NSString *)sql arrayArgs:(NSArray *)args error:(NSError **)error;
 
+- (void)executeQueryWithSql:(NSString *)sql arrayArgs:(NSArray *)args complete:(void(^)(NSArray *result, NSError * _Nullable error))complete;
+
 @end
 
 NS_ASSUME_NONNULL_END

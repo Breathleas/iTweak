@@ -107,6 +107,22 @@
     return exist;
 }
 
+- (void)executeQueryWithSql:(NSString *)sql arrayArgs:(NSArray *)args complete:(void(^)(NSArray *result, NSError * _Nullable error))complete{
+    [_dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        NSError *error;
+        FMResultSet *rs = [db executeQuery:sql values:args error:&error];
+        NSMutableArray *array = [NSMutableArray new];
+        while ([rs next]) {
+            NSDictionary *dict = [rs resultDictionary];
+            if (dict) {
+                [array addObject:dict];
+            }
+        }
+        [rs close];
+        complete([array copy], error);
+    }];
+}
+
 - (void)saveDataWithSql:(NSString *)sql arrayArgs:(NSArray *)args complete:(nullable void(^)(BOOL success, NSError * _Nullable error))complete{
     [_dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
         NSError *error;
