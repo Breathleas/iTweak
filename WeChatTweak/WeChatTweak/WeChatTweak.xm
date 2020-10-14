@@ -28,8 +28,7 @@
         model.step = [objectValueForKey(rankDesc, @"score") integerValue];
         model.title = objectValueForKey(rankDesc, @"title");
         model.likecount = [objectValueForKey(item, @"likecount") integerValue];
-        double ts = [objectValueForKey(item, @"timestamp") doubleValue];
-        model.timestamp = timestampToString(ts);
+        model.timestamp = [objectValueForKey(item, @"timestamp") unsignedIntValue];
         [list addObject:model];
     }
     if (list.count > 0) {

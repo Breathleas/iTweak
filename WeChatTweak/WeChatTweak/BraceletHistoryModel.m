@@ -18,9 +18,13 @@
     return self;
 }
 
+- (NSString *)strDatetime{
+    return timestampToString(_timestamp);
+}
+
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@: %p,uid: %@, datetime: %@, step count: %@>", NSStringFromClass([self class]), self, self.userid, self.timestamp, @(self.step)];
+    return [NSString stringWithFormat:@"<%@: %p,uid: %@, datetime: %@, step count: %@>", NSStringFromClass([self class]), self, self.userid, self.strDatetime, @(self.step)];
 }
 
 

@@ -21,7 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,assign) NSInteger likecount;
 
-@property (nonatomic,copy) NSString *timestamp;
+@property (nonatomic,copy, readonly) NSString *strDatetime;
+
+@property (nonatomic,assign) NSUInteger timestamp;
 
 @property (nonatomic,assign) double createdatetime;
 

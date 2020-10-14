@@ -54,8 +54,7 @@ static void _logos_method$_ungrouped$BraceletHistoryViewController$onGetUserHist
         model.step = [objectValueForKey(rankDesc, @"score") integerValue];
         model.title = objectValueForKey(rankDesc, @"title");
         model.likecount = [objectValueForKey(item, @"likecount") integerValue];
-        double ts = [objectValueForKey(item, @"timestamp") doubleValue];
-        model.timestamp = timestampToString(ts);
+        model.timestamp = [objectValueForKey(item, @"timestamp") unsignedIntValue];
         [list addObject:model];
     }
     if (list.count > 0) {
@@ -68,4 +67,4 @@ static void _logos_method$_ungrouped$BraceletHistoryViewController$onGetUserHist
 
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$BraceletHistoryViewController = objc_getClass("BraceletHistoryViewController"); MSHookMessageEx(_logos_class$_ungrouped$BraceletHistoryViewController, @selector(onGetUserHistoryPage:), (IMP)&_logos_method$_ungrouped$BraceletHistoryViewController$onGetUserHistoryPage$, (IMP*)&_logos_orig$_ungrouped$BraceletHistoryViewController$onGetUserHistoryPage$);} }
-#line 43 "/Users/a58/Workspace/OpenSource/MYHook/WeChatTweak/WeChatTweak/WeChatTweak.xm"
+#line 42 "/Users/a58/Workspace/OpenSource/MYHook/WeChatTweak/WeChatTweak/WeChatTweak.xm"
