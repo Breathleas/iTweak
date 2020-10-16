@@ -11,6 +11,43 @@
 #import "BraceletHistoryModel.h"
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <substrate.h>
 #if defined(__clang__)
 #if __has_feature(objc_arc)
@@ -34,7 +71,7 @@
 @class BraceletHistoryViewController; 
 static void (*_logos_orig$_ungrouped$BraceletHistoryViewController$onGetUserHistoryPage$)(_LOGOS_SELF_TYPE_NORMAL BraceletHistoryViewController* _LOGOS_SELF_CONST, SEL, id); static void _logos_method$_ungrouped$BraceletHistoryViewController$onGetUserHistoryPage$(_LOGOS_SELF_TYPE_NORMAL BraceletHistoryViewController* _LOGOS_SELF_CONST, SEL, id); 
 
-#line 12 "/Users/a58/Workspace/OpenSource/MYHook/WeChatTweak/WeChatTweak/WeChatTweak.xm"
+#line 49 "/Users/a58/Workspace/OpenSource/MYHook/WeChatTweak/WeChatTweak/WeChatTweak.xm"
 
 
 
@@ -50,14 +87,16 @@ static void _logos_method$_ungrouped$BraceletHistoryViewController$onGetUserHist
     for (id item in sportList) {
         BraceletHistoryModel *model = [[BraceletHistoryModel alloc] init];
         model.userid = userid;
+
         id rankDesc = objectValueForKey(item, @"rankdesc");
         model.step = [objectValueForKey(rankDesc, @"score") integerValue];
         model.title = objectValueForKey(rankDesc, @"title");
+
         model.likecount = [objectValueForKey(item, @"likecount") integerValue];
         model.timestamp = [objectValueForKey(item, @"timestamp") unsignedIntValue];
         [list addObject:model];
     }
-    if (list.count > 0) {
+    if(list.count > 0){
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             [WeChatTweakService saveBraceletHistoryData:list];
         });
@@ -67,4 +106,4 @@ static void _logos_method$_ungrouped$BraceletHistoryViewController$onGetUserHist
 
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$BraceletHistoryViewController = objc_getClass("BraceletHistoryViewController"); MSHookMessageEx(_logos_class$_ungrouped$BraceletHistoryViewController, @selector(onGetUserHistoryPage:), (IMP)&_logos_method$_ungrouped$BraceletHistoryViewController$onGetUserHistoryPage$, (IMP*)&_logos_orig$_ungrouped$BraceletHistoryViewController$onGetUserHistoryPage$);} }
-#line 42 "/Users/a58/Workspace/OpenSource/MYHook/WeChatTweak/WeChatTweak/WeChatTweak.xm"
+#line 81 "/Users/a58/Workspace/OpenSource/MYHook/WeChatTweak/WeChatTweak/WeChatTweak.xm"

@@ -70,19 +70,19 @@
         double diff = model.createdatetime - model.timestamp;
         if (exist) {
             if (diff > kSecondsOfOneDay) {
-                NSString *sql = [NSString stringWithFormat:@"select max(step) as step from %@ where uid like ? and wxdatetime like ?", kBraceletHistoryTable];
-                [[CYDatabaseManager sharedDatabase] executeQueryWithSql:sql arrayArgs:@[model.userid, model.strDatetime] complete:^(NSArray * _Nonnull result, NSError * _Nullable error) {
-                    if (error) {
-                        NSLog(@">>> execute sql failed: %@", error.description);
-                    } else {
-                        NSDictionary *dict = [result firstObject];
-                        NSUInteger step = [[dict objectForKey:@"step"] unsignedIntValue];
-                        NSLog(@">>> %@ already exist. current step count: %@, max step count: %@", model, @(model.step), @(step));
-                        if (model.step > step) {
-                            [self insertBraceletHistoryItem:model];
-                        }
-                    }
-                }];
+//                NSString *sql = [NSString stringWithFormat:@"select max(step) as step from %@ where uid like ? and wxdatetime like ?", kBraceletHistoryTable];
+//                [[CYDatabaseManager sharedDatabase] executeQueryWithSql:sql arrayArgs:@[model.userid, model.strDatetime] complete:^(NSArray * _Nonnull result, NSError * _Nullable error) {
+//                    if (error) {
+//                        NSLog(@">>> execute sql failed: %@", error.description);
+//                    } else {
+//                        NSDictionary *dict = [result firstObject];
+//                        NSUInteger step = [[dict objectForKey:@"step"] unsignedIntValue];
+//                        NSLog(@">>> current step: %@, history max step: %@", @(model.step), @(step));
+//                        if (model.step > step) {
+//                            [self insertBraceletHistoryItem:model];
+//                        }
+//                    }
+//                }];
             } else {
                 [self insertBraceletHistoryItem:model];
             }
