@@ -61,34 +61,32 @@
 + (void)saveBraceletHistoryData:(NSArray *)arr{
     
     for (BraceletHistoryModel *model in arr) {
-        NSString *existSql = [NSString stringWithFormat:@"select row_uuid from %@ where uid like ? and wxdatetime like ?", kBraceletHistoryTable];
-        NSError *error;
-        BOOL exist = [[CYDatabaseManager sharedDatabase] queryResultExist:existSql arrayArgs:@[model.userid, model.strDatetime] error:&error];
-        if (error) {
-            NSLog(@">>> execute sql failed: %@", error.description);
-        }
         double diff = model.createdatetime - model.timestamp;
-        if (exist) {
-            if (diff > kSecondsOfOneDay) {
-//                NSString *sql = [NSString stringWithFormat:@"select max(step) as step from %@ where uid like ? and wxdatetime like ?", kBraceletHistoryTable];
-//                [[CYDatabaseManager sharedDatabase] executeQueryWithSql:sql arrayArgs:@[model.userid, model.strDatetime] complete:^(NSArray * _Nonnull result, NSError * _Nullable error) {
-//                    if (error) {
-//                        NSLog(@">>> execute sql failed: %@", error.description);
-//                    } else {
-//                        NSDictionary *dict = [result firstObject];
-//                        NSUInteger step = [[dict objectForKey:@"step"] unsignedIntValue];
-//                        NSLog(@">>> current step: %@, history max step: %@", @(model.step), @(step));
-//                        if (model.step > step) {
-//                            [self insertBraceletHistoryItem:model];
-//                        }
-//                    }
-//                }];
-            } else {
-                [self insertBraceletHistoryItem:model];
-            }
+        if (diff < kSecondsOfOneDay) {
+            model.shouldInsert = YES;
         } else {
-            [self insertBraceletHistoryItem:model];
+            NSString *sql = [NSString stringWithFormat:@"select max(step) as step from %@ where uid like ? and wxdatetime like ?", kBraceletHistoryTable];
+            [[CYDatabaseManager sharedDatabase] executeQueryWithSql:sql arrayArgs:@[model.userid, model.strDatetime] complete:^(NSArray * _Nonnull result, NSError * _Nullable error) {
+                if (error) {
+                    NSLog(@">>> execute sql failed: %@", error.description);
+                    return;
+                }
+                if (result.count == 0) {
+                    model.shouldInsert = YES;
+                } else {
+                    NSDictionary *dict = [result firstObject];
+                    NSUInteger step = [[dict objectForKey:@"step"] unsignedIntValue];
+                    NSLog(@">>> %@ model step: %@, history max step: %@", model.strDatetime, @(model.step), @(step));
+                    if (model.step > step) {
+                        model.shouldInsert = YES;
+                    }
+                }
+            }];
         }
+    }
+    
+    for (BraceletHistoryModel *model in arr) {
+        if (model.shouldInsert) [self insertBraceletHistoryItem:model];
     }
 }
 

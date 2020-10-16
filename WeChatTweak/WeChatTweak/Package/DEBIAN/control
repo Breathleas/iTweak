@@ -1,7 +1,7 @@
-Package: com.jiaxw.WeChatTweak
-Name: WeChatTweak
-Version: 1.0
-Description: 
+Package: com.jiaxw.AwesomeWeChat
+Name: AwesomeWeChat
+Version: 1.2
+Description: Awesome WeChat tools.
 Section: System
 Depends: firmware (>= 5.0), mobilesubstrate
 Conflicts: 
