@@ -205,7 +205,17 @@ NSString* timestampToString(NSTimeInterval timestamp){
         format.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     }
     return [format stringFromDate:date];
+    
 }
+
+NSInteger hourOfDate(NSDate *date){
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+//    NSUInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    NSUInteger unitFlags = NSCalendarUnitHour;
+    NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:date];
+    return dateComponent.hour;
+}
+
 
 #pragma mark - CYUtils
 

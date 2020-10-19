@@ -68,6 +68,8 @@ FOUNDATION_EXPORT NSString* generateUUID(void);
 
 FOUNDATION_EXPORT NSString* timestampToString(NSTimeInterval timestamp);
 
+FOUNDATION_EXPORT NSInteger hourOfDate(NSDate *date);
+
 @interface CYUtils : NSObject
 
 @end
