@@ -30,6 +30,13 @@
 		370932CA2535D0B900364844 /* WeChatTweakService.m in Sources */ = {isa = PBXBuildFile; fileRef = 370932C82535D0B900364844 /* WeChatTweakService.m */; };
 		370932CD2535D29800364844 /* BraceletHistoryModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 370932CB2535D29800364844 /* BraceletHistoryModel.h */; };
 		370932CE2535D29800364844 /* BraceletHistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 370932CC2535D29800364844 /* BraceletHistoryModel.m */; };
+		37F05A67253D98770005C6F1 /* WCCgiBlockHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F05A66253D98760005C6F1 /* WCCgiBlockHelper.h */; };
+		37F05A69253DA6B20005C6F1 /* WCBaseCgi.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F05A68253DA6B20005C6F1 /* WCBaseCgi.h */; };
+		37F05A6B253DA85A0005C6F1 /* GetUserHistoryPageRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F05A6A253DA85A0005C6F1 /* GetUserHistoryPageRequest.h */; };
+		37F6B212253DBD9600CD4265 /* GetUserHistoryPageResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F6B211253DBD9600CD4265 /* GetUserHistoryPageResponse.h */; };
+		37F6B214253DBED800CD4265 /* WXPBGeneratedMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F6B213253DBED800CD4265 /* WXPBGeneratedMessage.h */; };
+		37F6B216253DE47300CD4265 /* WCBaseNetworkingError.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F6B215253DE47300CD4265 /* WCBaseNetworkingError.h */; };
+		37F6B218253DE4FA00CD4265 /* MMObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F6B217253DE4FA00CD4265 /* MMObject.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +68,13 @@
 		370932C82535D0B900364844 /* WeChatTweakService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeChatTweakService.m; sourceTree = "<group>"; };
 		370932CB2535D29800364844 /* BraceletHistoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BraceletHistoryModel.h; sourceTree = "<group>"; };
 		370932CC2535D29800364844 /* BraceletHistoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BraceletHistoryModel.m; sourceTree = "<group>"; };
+		37F05A66253D98760005C6F1 /* WCCgiBlockHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCCgiBlockHelper.h; sourceTree = "<group>"; };
+		37F05A68253DA6B20005C6F1 /* WCBaseCgi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBaseCgi.h; sourceTree = "<group>"; };
+		37F05A6A253DA85A0005C6F1 /* GetUserHistoryPageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserHistoryPageRequest.h; sourceTree = "<group>"; };
+		37F6B211253DBD9600CD4265 /* GetUserHistoryPageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserHistoryPageResponse.h; sourceTree = "<group>"; };
+		37F6B213253DBED800CD4265 /* WXPBGeneratedMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXPBGeneratedMessage.h; sourceTree = "<group>"; };
+		37F6B215253DE47300CD4265 /* WCBaseNetworkingError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBaseNetworkingError.h; sourceTree = "<group>"; };
+		37F6B217253DE4FA00CD4265 /* MMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMObject.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +121,7 @@
 		370932812535CF5100364844 /* WeChatTweak */ = {
 			isa = PBXGroup;
 			children = (
+				37F05A65253D98760005C6F1 /* headers */,
 				370932932535D05700364844 /* Common */,
 				370932A02535D05700364844 /* CYDatabase */,
 				370932872535CF5100364844 /* WeChatTweak.xm */,
@@ -201,6 +216,20 @@
 			path = ../../CYDatabase;
 			sourceTree = "<group>";
 		};
+		37F05A65253D98760005C6F1 /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				37F6B217253DE4FA00CD4265 /* MMObject.h */,
+				37F6B215253DE47300CD4265 /* WCBaseNetworkingError.h */,
+				37F6B213253DBED800CD4265 /* WXPBGeneratedMessage.h */,
+				37F6B211253DBD9600CD4265 /* GetUserHistoryPageResponse.h */,
+				37F05A6A253DA85A0005C6F1 /* GetUserHistoryPageRequest.h */,
+				37F05A68253DA6B20005C6F1 /* WCBaseCgi.h */,
+				37F05A66253D98760005C6F1 /* WCCgiBlockHelper.h */,
+			);
+			path = headers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -211,13 +240,20 @@
 				370932C22535D05700364844 /* FMDatabaseQueue.h in Headers */,
 				370932C62535D05700364844 /* CYDatabaseModel.h in Headers */,
 				370932BD2535D05700364844 /* FMResultSet.h in Headers */,
+				37F6B212253DBD9600CD4265 /* GetUserHistoryPageResponse.h in Headers */,
+				37F6B216253DE47300CD4265 /* WCBaseNetworkingError.h in Headers */,
 				370932CD2535D29800364844 /* BraceletHistoryModel.h in Headers */,
 				370932C42535D05700364844 /* FMDatabaseAdditions.h in Headers */,
 				370932BA2535D05700364844 /* FMDatabase.h in Headers */,
+				37F6B214253DBED800CD4265 /* WXPBGeneratedMessage.h in Headers */,
+				37F05A6B253DA85A0005C6F1 /* GetUserHistoryPageRequest.h in Headers */,
 				370932B02535D05700364844 /* CYUtils.h in Headers */,
 				370932C92535D0B900364844 /* WeChatTweakService.h in Headers */,
+				37F6B218253DE4FA00CD4265 /* MMObject.h in Headers */,
 				370932C32535D05700364844 /* FMDB.h in Headers */,
+				37F05A69253DA6B20005C6F1 /* WCBaseCgi.h in Headers */,
 				370932BC2535D05700364844 /* CYDatabaseManager.h in Headers */,
+				37F05A67253D98770005C6F1 /* WCCgiBlockHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

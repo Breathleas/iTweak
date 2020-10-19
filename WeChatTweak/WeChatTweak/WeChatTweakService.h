@@ -5,13 +5,15 @@
 //  Created by jiaxw on 2020/10/13.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class GetUserHistoryPageResponse;
+
 @interface WeChatTweakService : NSObject
 
-+ (void)saveBraceletHistoryData:(NSArray *)arr;
++ (void)saveBraceletHistoryData:(GetUserHistoryPageResponse *)response userId:(NSString *)userid;
 
 @end
 

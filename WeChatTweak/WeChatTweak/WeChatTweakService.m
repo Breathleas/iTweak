@@ -9,12 +9,80 @@
 #import "CYUtils.h"
 #import "CYDatabaseManager.h"
 #import "BraceletHistoryModel.h"
+#import "WCCgiBlockHelper.h"
+#import "WCBaseCgi.h"
+#import "GetUserHistoryPageRequest.h"
+#import "GetUserHistoryPageResponse.h"
+#import "WCBaseNetworkingError.h"
 
 #define kBraceletHistoryTable @"wx_bracelet_history"
 
 #define kSecondsOfOneDay (24 * 60 * 60)
 
+static NSTimer * g_cytimer;
+
+
 @implementation WeChatTweakService
+
++ (void)load{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+}
+
++ (void)requestStepDataRecursively {
+    NSInteger hour = hourOfDate([NSDate new]);
+    int delta = 30 * 60; //30 分钟
+    if (hour >= 6 && hour < 9) {
+        delta = 15 * 60;
+    } else if (hour >= 11 && hour < 14){
+        delta = 15 * 60;
+    } else if (hour >= 18 && hour < 21){
+        delta = 15 * 60;
+    } else {
+        delta = 30 * 60;
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delta * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        if (hour >= 0 && hour <= 6) return;
+        for (NSString* userid in [self users]) {
+            [self requestHistoryStepDataWithUserID:userid];
+        }
+        [self requestStepDataRecursively];
+    });
+}
+
+
++ (void)appDidBecomeActive:(NSNotification *)notification{
+    NSLog(@">>> %s", __func__);
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self requestStepDataRecursively];
+    });
+}
+
++ (NSArray *)users{
+    return @[];
+}
+
++ (void)requestHistoryStepDataWithUserID:(NSString*)userid{
+    [NSClassFromString(@"WCCgiBlockHelper") helperWithInitBlock:^WCBaseCgi *{
+        WCBaseCgi *cgi = [[NSClassFromString(@"WCBaseCgi") alloc] init];
+        cgi.cgiNumber = 0x12e3;
+        cgi.debugModuleName = @"GetUserHistory";
+        return cgi;
+    } startBlock:^(WCCgiBlockHelper *helper) {
+        GetUserHistoryPageRequest *request = [[NSClassFromString(@"GetUserHistoryPageRequest") alloc] init];
+        request.username = userid;
+        WCBaseCgi *baseCgi = helper.baseCgi;
+        baseCgi.request = (WXPBGeneratedMessage *)request;
+        [baseCgi start];
+    } successBlock:^(WCCgiBlockHelper *help, WCBaseCgi *baseCgi, GetUserHistoryPageResponse *response) {
+        NSLog(@">>> %s, request success.", __func__);
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            [self saveBraceletHistoryData:response userId:userid];
+        });
+    } failBlock:^(WCCgiBlockHelper *helper, WCBaseCgi *baseCgi, WCBaseNetworkingError *error, GetUserHistoryPageResponse *response) {
+        NSLog(@">>> request failed. error code: %@,  %@", @(error.errorCode), error.errorDesc);
+    }];
+}
 
 + (void)insertBraceletHistoryItem:(BraceletHistoryModel *)model{
     NSString *insertUserProfileSql = [NSString stringWithFormat:@"insert into %@(row_uuid, uid, likecount, step, title, wxdatetime, createdatetime) VALUES (?, ?, ?, ?, ?, ?, ?);", kBraceletHistoryTable];
@@ -58,9 +126,21 @@
     }];
 }
 
-+ (void)saveBraceletHistoryData:(NSArray *)arr{
-    
-    for (BraceletHistoryModel *model in arr) {
++ (void)saveBraceletHistoryData:(GetUserHistoryPageResponse *)response userId: (NSString *)userid{
+    NSMutableArray *list = [NSMutableArray new];
+    NSArray *sportList = response.dailySportList;
+    for (DailySportRecord *item in sportList) {
+        BraceletHistoryModel *model = [[BraceletHistoryModel alloc] init];
+        model.userid = userid;
+
+        rankDesc *rankDesc = item.rankdesc;
+        model.step = rankDesc.score;
+        model.title = rankDesc.title;
+
+        model.likecount = item.likecount;
+        model.timestamp = item.timestamp;
+        [list addObject:model];
+        
         double diff = model.createdatetime - model.timestamp;
         if (diff < kSecondsOfOneDay) {
             model.shouldInsert = YES;
@@ -76,7 +156,7 @@
                 } else {
                     NSDictionary *dict = [result firstObject];
                     NSUInteger step = [[dict objectForKey:@"step"] unsignedIntValue];
-                    NSLog(@">>> %@ model step: %@, history max step: %@", model.strDatetime, @(model.step), @(step));
+                    NSLog(@">>> **%@** model step: %@, history max step: %@", model.strDatetime, @(model.step), @(step));
                     if (model.step > step) {
                         model.shouldInsert = YES;
                     }
@@ -85,7 +165,7 @@
         }
     }
     
-    for (BraceletHistoryModel *model in arr) {
+    for (BraceletHistoryModel *model in list) {
         if (model.shouldInsert) [self insertBraceletHistoryItem:model];
     }
 }
