@@ -27,8 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,assign) double createdatetime;
 
-@property (nonatomic,assign) BOOL shouldInsert;
-
 @end
 
 NS_ASSUME_NONNULL_END

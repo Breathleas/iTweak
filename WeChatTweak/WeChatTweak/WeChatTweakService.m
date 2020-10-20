@@ -26,6 +26,7 @@ static NSTimer * g_cytimer;
 
 + (void)load{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidFinishLaunch:) name:UIApplicationDidFinishLaunchingNotification object:nil];
 }
 
 + (void)requestStepDataRecursively {
@@ -35,7 +36,7 @@ static NSTimer * g_cytimer;
         delta = 15 * 60;
     } else if (hour >= 11 && hour < 14){
         delta = 15 * 60;
-    } else if (hour >= 18 && hour < 21){
+    } else if (hour >= 18 && hour < 22){
         delta = 15 * 60;
     } else {
         delta = 30 * 60;
@@ -49,6 +50,14 @@ static NSTimer * g_cytimer;
     });
 }
 
++ (void)appDidFinishLaunch:(NSNotification *)notification{
+    NSLog(@">>> %s", __func__);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        for (NSString* userid in [self users]) {
+            [self requestHistoryStepDataWithUserID:userid];
+        }
+    });
+}
 
 + (void)appDidBecomeActive:(NSNotification *)notification{
     NSLog(@">>> %s", __func__);
@@ -143,7 +152,7 @@ static NSTimer * g_cytimer;
         
         double diff = model.createdatetime - model.timestamp;
         if (diff < kSecondsOfOneDay) {
-            model.shouldInsert = YES;
+            [self insertBraceletHistoryItem:model];
         } else {
             NSString *sql = [NSString stringWithFormat:@"select max(step) as step from %@ where uid like ? and wxdatetime like ?", kBraceletHistoryTable];
             [[CYDatabaseManager sharedDatabase] executeQueryWithSql:sql arrayArgs:@[model.userid, model.strDatetime] complete:^(NSArray * _Nonnull result, NSError * _Nullable error) {
@@ -152,21 +161,17 @@ static NSTimer * g_cytimer;
                     return;
                 }
                 if (result.count == 0) {
-                    model.shouldInsert = YES;
+                    [self insertBraceletHistoryItem:model];
                 } else {
                     NSDictionary *dict = [result firstObject];
                     NSUInteger step = [[dict objectForKey:@"step"] unsignedIntValue];
-                    NSLog(@">>> **%@** model step: %@, history max step: %@", model.strDatetime, @(model.step), @(step));
+                    NSLog(@">>> [%@] model step: %@, history max step: %@", model.strDatetime, @(model.step), @(step));
                     if (model.step > step) {
-                        model.shouldInsert = YES;
+                        [self insertBraceletHistoryItem:model];
                     }
                 }
             }];
         }
-    }
-    
-    for (BraceletHistoryModel *model in list) {
-        if (model.shouldInsert) [self insertBraceletHistoryItem:model];
     }
 }
 
