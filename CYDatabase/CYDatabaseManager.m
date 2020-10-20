@@ -108,10 +108,10 @@
 }
 
 - (void)executeQueryWithSql:(NSString *)sql arrayArgs:(NSArray *)args complete:(void(^)(NSArray *result, NSError * _Nullable error))complete{
+    NSMutableArray *array = [NSMutableArray new];
+    __block NSError *error;
     [_dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
-        NSError *error;
         FMResultSet *rs = [db executeQuery:sql values:args error:&error];
-        NSMutableArray *array = [NSMutableArray new];
         while ([rs next]) {
             NSDictionary *dict = [rs resultDictionary];
             if (dict) {
@@ -119,25 +119,28 @@
             }
         }
         [rs close];
-        complete([array copy], error);
     }];
+    complete(array, error);
 }
 
 - (void)saveDataWithSql:(NSString *)sql arrayArgs:(NSArray *)args complete:(nullable void(^)(BOOL success, NSError * _Nullable error))complete{
+    __block NSError *error;
+    __block BOOL ret;
     [_dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
-        NSError *error;
-        BOOL ret = [db executeUpdate:sql
+        ret = [db executeUpdate:sql
                               values:args
                                error:&error];
-        complete(ret, error);
     }];
+    complete(ret, error);
 }
 
 - (void)saveRequestData:(CYNetWorkRequestModel *)model complete:(nullable void(^)(BOOL success, NSError* _Nullable error))complete{
+    __block NSError *error;
+    __block BOOL ret;
     [_dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
         NSString *sql = [NSString stringWithFormat:@"insert into %@(rid, taskid, request_url, method, scheme, host, url_path, query_params, body, request_header, status_code, response_header, response_object, createdatetime, lastmodifytime, memo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", kNetWorkRequestTableName];
         NSError *error;
-        BOOL ret = [db executeUpdate: sql
+        ret = [db executeUpdate: sql
                               values:@[
                                   model.rid,
                                   @(model.taskId),
@@ -157,8 +160,8 @@
                                   model.memo ?: [NSNull null]
                               ]
                                error:&error];
-        complete(ret, error);
     }];
+    complete(ret, error);
 }
 
 - (void)saveValue:(NSString *)value withKey:(NSString *)key{
@@ -182,10 +185,12 @@
 }
 
 - (void)saveKeyValueData:(CYKeyValueModel *)model complete:(nullable void(^)(BOOL success, NSError* _Nullable error))complete{
+    __block NSError *error;
+    __block BOOL ret;
     [_dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
         NSString *sql = [NSString stringWithFormat:@"insert into %@(cyid, key, value, tag, createdatetime, lastmodifytime, memo) VALUES (?, ?, ?, ?, ?, ?, ?);", kKeyValueTableName];
         NSError *error;
-        BOOL ret = [db executeUpdate: sql
+        ret = [db executeUpdate: sql
                               values:@[
                                   model.cyid,
                                   model.key ?: [NSNull null],
@@ -196,8 +201,8 @@
                                   model.memo ?: [NSNull null]
                               ]
                                error:&error];
-        complete(ret, error);
     }];
+    complete(ret, error);
 }
 
 @end
