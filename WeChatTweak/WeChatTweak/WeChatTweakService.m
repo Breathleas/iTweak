@@ -33,16 +33,16 @@ static NSTimer * g_cytimer;
     NSInteger hour = hourOfDate([NSDate new]);
     int delta = 30 * 60; //30 分钟
     if (hour >= 6 && hour < 9) {
-        delta = 15 * 60;
+        delta = 10 * 60;
     } else if (hour >= 11 && hour < 14){
         delta = 15 * 60;
-    } else if (hour >= 18 && hour < 22){
-        delta = 15 * 60;
+    } else if (hour >= 18 && hour < 23){
+        delta = 20 * 60;
     } else {
         delta = 30 * 60;
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delta * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        if (hour >= 0 && hour <= 6) return;
+        if (hour >= 1 && hour <= 5) return;
         for (NSString* userid in [self users]) {
             [self requestHistoryStepDataWithUserID:userid];
         }
