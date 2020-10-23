@@ -41,6 +41,8 @@
 		374CCCCA2517065F00680D75 /* CYDatabaseModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 374CCCBD2517065F00680D75 /* CYDatabaseModel.h */; };
 		374CCCCD2517070300680D75 /* AwemeDataService.h in Headers */ = {isa = PBXBuildFile; fileRef = 374CCCCB2517070300680D75 /* AwemeDataService.h */; };
 		374CCCCE2517070300680D75 /* AwemeDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 374CCCCC2517070300680D75 /* AwemeDataService.m */; };
+		37653354254275750099C194 /* YYKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 37653352254275750099C194 /* YYKeychain.h */; };
+		37653355254275750099C194 /* YYKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 37653353254275750099C194 /* YYKeychain.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,8 @@
 		374CCCBD2517065F00680D75 /* CYDatabaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYDatabaseModel.h; sourceTree = "<group>"; };
 		374CCCCB2517070300680D75 /* AwemeDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AwemeDataService.h; sourceTree = "<group>"; };
 		374CCCCC2517070300680D75 /* AwemeDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AwemeDataService.m; sourceTree = "<group>"; };
+		37653352254275750099C194 /* YYKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKeychain.h; sourceTree = "<group>"; };
+		37653353254275750099C194 /* YYKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYKeychain.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 		374CCBEC25148FF100680D75 /* AwemeTweak */ = {
 			isa = PBXGroup;
 			children = (
+				37653351254275750099C194 /* YYKeychain */,
 				374CCCB02517065F00680D75 /* CYDatabase */,
 				374CCC972517062800680D75 /* Common */,
 				374CCC8C2517058500680D75 /* YYModel */,
@@ -216,22 +221,32 @@
 		374CCCB02517065F00680D75 /* CYDatabase */ = {
 			isa = PBXGroup;
 			children = (
-				374CCCB12517065F00680D75 /* FMDatabase.h */,
-				374CCCB22517065F00680D75 /* FMDatabaseQueue.m */,
 				374CCCB32517065F00680D75 /* CYDatabaseManager.h */,
-				374CCCB42517065F00680D75 /* FMResultSet.h */,
-				374CCCB52517065F00680D75 /* FMDatabaseAdditions.m */,
-				374CCCB62517065F00680D75 /* CYDatabaseModel.m */,
-				374CCCB72517065F00680D75 /* FMDatabase.m */,
 				374CCCB82517065F00680D75 /* CYDatabaseManager.m */,
-				374CCCB92517065F00680D75 /* FMDatabaseQueue.h */,
-				374CCCBA2517065F00680D75 /* FMDB.h */,
-				374CCCBB2517065F00680D75 /* FMDatabaseAdditions.h */,
-				374CCCBC2517065F00680D75 /* FMResultSet.m */,
 				374CCCBD2517065F00680D75 /* CYDatabaseModel.h */,
+				374CCCB62517065F00680D75 /* CYDatabaseModel.m */,
+				374CCCB12517065F00680D75 /* FMDatabase.h */,
+				374CCCB72517065F00680D75 /* FMDatabase.m */,
+				374CCCBB2517065F00680D75 /* FMDatabaseAdditions.h */,
+				374CCCB52517065F00680D75 /* FMDatabaseAdditions.m */,
+				374CCCB92517065F00680D75 /* FMDatabaseQueue.h */,
+				374CCCB22517065F00680D75 /* FMDatabaseQueue.m */,
+				374CCCBA2517065F00680D75 /* FMDB.h */,
+				374CCCB42517065F00680D75 /* FMResultSet.h */,
+				374CCCBC2517065F00680D75 /* FMResultSet.m */,
 			);
 			name = CYDatabase;
 			path = ../../CYDatabase;
+			sourceTree = "<group>";
+		};
+		37653351254275750099C194 /* YYKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				37653352254275750099C194 /* YYKeychain.h */,
+				37653353254275750099C194 /* YYKeychain.m */,
+			);
+			name = YYKeychain;
+			path = ../../YYKeychain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				374CCCC72517065F00680D75 /* FMDB.h in Headers */,
+				37653354254275750099C194 /* YYKeychain.h in Headers */,
 				374CCC862516E76100680D75 /* DYUserProfileModel.h in Headers */,
 				3737E592251B6A3600502ECD /* CYDummyClass.h in Headers */,
 				374CCCCD2517070300680D75 /* AwemeDataService.h in Headers */,
@@ -369,6 +385,7 @@
 				374CCCC42517065F00680D75 /* FMDatabase.m in Sources */,
 				374CCCCE2517070300680D75 /* AwemeDataService.m in Sources */,
 				3737E591251B6A3600502ECD /* CYDummyClass.m in Sources */,
+				37653355254275750099C194 /* YYKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

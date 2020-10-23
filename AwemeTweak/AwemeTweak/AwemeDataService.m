@@ -12,6 +12,8 @@
 #import "DYUserProfileModel.h"
 #import "CYDatabaseManager.h"
 #import "CYDummyClass.h"
+#import "YYKeychain.h"
+#import <objc/message.h>
 
 #define kAweUserFollowerTable @"dy_user_follower"
 
@@ -237,6 +239,19 @@ static void createUserInfoTable(){
     }
 }
 
+static void clearAwemeDeviceInfo(){
+//    +[BDInstall clearDidAndIid]
+    BOOL ret = ((BOOL(*)(id, SEL))objc_msgSend)(NSClassFromString(@"BDInstall"), NSSelectorFromString(@"clearDidAndIid"));
+    if(ret){
+        NSLog(@">>> clear did and iid success.");
+    } else {
+        NSLog(@">>> clear did and iid failed.");
+    }
+    
+    resetKeyChainAllPassword();
+    clearAllCookies();
+}
+
 __attribute__((constructor)) static void awe_initialization()
 {
     createFollowTableWithName(kAweUserFollowerTable);
@@ -245,7 +260,18 @@ __attribute__((constructor)) static void awe_initialization()
     createUserInfoTable();
     
     [CYDummyClass registFloatButtonClickHandler:^{
-        uint32_t crypt = isMainImageEncrypted();
-        NSLog(@">>> the mach-o file encrypt status: %u", crypt);
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请选择" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *actionResetDeviceInfo = [UIAlertAction actionWithTitle: @"重置设备信息" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            clearAwemeDeviceInfo();
+        }];
+
+        UIAlertAction *actionCancel = [UIAlertAction actionWithTitle: @"取消" style:UIAlertActionStyleDefault handler:nil];
+        
+        [alertController addAction: actionResetDeviceInfo];
+        [alertController addAction: actionCancel];
+        
+        [[CYDummyClass topViewController] presentViewController:alertController animated:YES completion:nil];
     }];
 }
