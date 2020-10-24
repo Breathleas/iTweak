@@ -71,7 +71,7 @@ static NSTimer * g_cytimer;
 }
 
 + (NSArray *)users{
-    return @[];
+    return @[@"wxid_smha4p9iwwyq22"];
 }
 
 + (void)requestHistoryStepDataWithUserID:(NSString*)userid{
