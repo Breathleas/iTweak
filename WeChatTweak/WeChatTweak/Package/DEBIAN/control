@@ -1,6 +1,6 @@
 Package: com.jiaxw.AwesomeWeChat
 Name: AwesomeWeChat
-Version: 1.5
+Version: 1.6
 Description: Awesome WeChat tools.
 Section: System
 Depends: firmware (>= 5.0), mobilesubstrate
@@ -11,7 +11,7 @@ Architecture: iphoneos-arm
 Author: jiaxw
 dev: 
 Homepage: 
-Depiction: 
+Depiction:
 Maintainer: 
 Icon: 
 

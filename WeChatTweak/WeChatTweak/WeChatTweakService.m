@@ -36,17 +36,20 @@ static NSTimer * g_cytimer;
         delta = 10 * 60;
     } else if (hour >= 11 && hour < 14){
         delta = 15 * 60;
-    } else if (hour >= 18 && hour < 23){
-        delta = 20 * 60;
+    } else if (hour >= 18 && hour < 24){
+        delta = 12 * 60;
     } else {
         delta = 30 * 60;
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delta * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        if (hour >= 1 && hour <= 5) return;
-        for (NSString* userid in [self users]) {
-            [self requestHistoryStepDataWithUserID:userid];
+        if (hour >= 1 && hour <= 5){
+            [self requestStepDataRecursively];
+        } else {
+            for (NSString* userid in [self users]) {
+                [self requestHistoryStepDataWithUserID:userid];
+            }
+            [self requestStepDataRecursively];
         }
-        [self requestStepDataRecursively];
     });
 }
 
