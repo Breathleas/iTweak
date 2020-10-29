@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/bin/launchctl unload /Library/LaunchDaemons/com.jiaxw.idaemond.plist

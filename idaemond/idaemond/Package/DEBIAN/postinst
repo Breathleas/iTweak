@@ -1,0 +1,5 @@
+#!/bin/sh
+chown -R root:wheel /usr/bin/idaemond
+chown -R root:wheel /Library/LaunchDaemons/com.jiaxw.idaemond.plist
+/bin/launchctl unload /Library/LaunchDaemons/com.jiaxw.idaemond.plist
+/bin/launchctl load /Library/LaunchDaemons/com.jiaxw.idaemond.plist

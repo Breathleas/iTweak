@@ -1,0 +1,322 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DE965630254B092F0061A75E /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = DE96562F254B092F0061A75E /* main.mm */; };
+		DE965638254B0D1F0061A75E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE965637254B0D1F0061A75E /* UIKit.framework */; platformFilter = ios; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DE965625254B092F0061A75E /* idaemond */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idaemond; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE96562A254B092F0061A75E /* control */ = {isa = PBXFileReference; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		DE96562B254B092F0061A75E /* monkeydev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = monkeydev.entitlements; sourceTree = "<group>"; };
+		DE96562E254B092F0061A75E /* 0xdeadfa11 */ = {isa = PBXFileReference; lastKnownFileType = text; path = 0xdeadfa11; sourceTree = "<group>"; };
+		DE96562F254B092F0061A75E /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		DE965637254B0D1F0061A75E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DE965622254B092F0061A75E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE965638254B0D1F0061A75E /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DE96561C254B092F0061A75E = {
+			isa = PBXGroup;
+			children = (
+				DE965627254B092F0061A75E /* idaemond */,
+				DE965626254B092F0061A75E /* Products */,
+				DE965636254B0D1F0061A75E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DE965626254B092F0061A75E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE965625254B092F0061A75E /* idaemond */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DE965627254B092F0061A75E /* idaemond */ = {
+			isa = PBXGroup;
+			children = (
+				DE96562B254B092F0061A75E /* monkeydev.entitlements */,
+				DE96562F254B092F0061A75E /* main.mm */,
+				DE965628254B092F0061A75E /* Package */,
+			);
+			path = idaemond;
+			sourceTree = "<group>";
+		};
+		DE965628254B092F0061A75E /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				DE965629254B092F0061A75E /* DEBIAN */,
+				DE96562C254B092F0061A75E /* usr */,
+			);
+			path = Package;
+			sourceTree = "<group>";
+		};
+		DE965629254B092F0061A75E /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				DE96562A254B092F0061A75E /* control */,
+			);
+			path = DEBIAN;
+			sourceTree = "<group>";
+		};
+		DE96562C254B092F0061A75E /* usr */ = {
+			isa = PBXGroup;
+			children = (
+				DE96562D254B092F0061A75E /* bin */,
+			);
+			path = usr;
+			sourceTree = "<group>";
+		};
+		DE96562D254B092F0061A75E /* bin */ = {
+			isa = PBXGroup;
+			children = (
+				DE96562E254B092F0061A75E /* 0xdeadfa11 */,
+			);
+			path = bin;
+			sourceTree = "<group>";
+		};
+		DE965636254B0D1F0061A75E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE965637254B0D1F0061A75E /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DE965624254B092F0061A75E /* idaemond */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE965633254B092F0061A75E /* Build configuration list for PBXNativeTarget "idaemond" */;
+			buildPhases = (
+				DE965621254B092F0061A75E /* Sources */,
+				DE965622254B092F0061A75E /* Frameworks */,
+				DE965623254B092F0061A75E /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = idaemond;
+			productName = idaemond;
+			productReference = DE965625254B092F0061A75E /* idaemond */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DE96561D254B092F0061A75E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1150;
+				TargetAttributes = {
+					DE965624254B092F0061A75E = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = DE965620254B092F0061A75E /* Build configuration list for PBXProject "idaemond" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DE96561C254B092F0061A75E;
+			productRefGroup = DE965626254B092F0061A75E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DE965624254B092F0061A75E /* idaemond */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DE965623254B092F0061A75E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/MonkeyDev/bin/md --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DE965621254B092F0061A75E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE965630254B092F0061A75E /* main.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DE965631254B092F0061A75E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(MonkeyDevPath)/frameworks/**",
+					"$(MonkeyDevTheosPath)/vendor/lib",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/lib/**";
+				MonkeyDevPath = /opt/MonkeyDev;
+				MonkeyDevTheosPath = /opt/theos;
+				OTHER_CFLAGS = "-DTHEOS_INSTANCE_NAME=\"\\\"idaemond\\\"\"";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DE965632254B092F0061A75E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(MonkeyDevPath)/frameworks/**",
+					"$(MonkeyDevTheosPath)/vendor/lib",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/lib/**";
+				MonkeyDevPath = /opt/MonkeyDev;
+				MonkeyDevTheosPath = /opt/theos;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-DTHEOS_INSTANCE_NAME=\"\\\"idaemond\\\"\"";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		DE965634254B092F0061A75E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_ENTITLEMENTS = idaemond/monkeydev.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INSTALL_PATH = /usr/bin;
+				MonkeyDevBuildPackageOnAnyBuild = NO;
+				MonkeyDevClearUiCacheOnInstall = NO;
+				MonkeyDevCopyOnBuild = NO;
+				MonkeyDevDeviceIP = localhost;
+				MonkeyDevDevicePassword = admin;
+				MonkeyDevDevicePort = 2222;
+				MonkeyDevInstallOnAnyBuild = YES;
+				MonkeyDevInstallOnProfiling = YES;
+				MonkeyDevkillProcessOnInstall = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiaxw.idaemond;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DE965635254B092F0061A75E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_ENTITLEMENTS = idaemond/monkeydev.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INSTALL_PATH = /usr/bin;
+				MonkeyDevBuildPackageOnAnyBuild = NO;
+				MonkeyDevClearUiCacheOnInstall = NO;
+				MonkeyDevCopyOnBuild = NO;
+				MonkeyDevDeviceIP = localhost;
+				MonkeyDevDevicePassword = admin;
+				MonkeyDevDevicePort = 2222;
+				MonkeyDevInstallOnAnyBuild = YES;
+				MonkeyDevInstallOnProfiling = YES;
+				MonkeyDevkillProcessOnInstall = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiaxw.idaemond;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DE965620254B092F0061A75E /* Build configuration list for PBXProject "idaemond" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE965631254B092F0061A75E /* Release */,
+				DE965632254B092F0061A75E /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE965633254B092F0061A75E /* Build configuration list for PBXNativeTarget "idaemond" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE965634254B092F0061A75E /* Release */,
+				DE965635254B092F0061A75E /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DE96561D254B092F0061A75E /* Project object */;
+}
