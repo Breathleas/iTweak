@@ -30,6 +30,10 @@
 		370932CA2535D0B900364844 /* WeChatTweakService.m in Sources */ = {isa = PBXBuildFile; fileRef = 370932C82535D0B900364844 /* WeChatTweakService.m */; };
 		370932CD2535D29800364844 /* BraceletHistoryModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 370932CB2535D29800364844 /* BraceletHistoryModel.h */; };
 		370932CE2535D29800364844 /* BraceletHistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 370932CC2535D29800364844 /* BraceletHistoryModel.m */; };
+		37C9ADC1254D27D400DB55E5 /* WCAntiJailbreak.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C9ADC0254D27D400DB55E5 /* WCAntiJailbreak.m */; };
+		37C9ADC5254D2A0900DB55E5 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = 37C9ADC3254D2A0900DB55E5 /* fishhook.c */; };
+		37C9ADC6254D2A0900DB55E5 /* fishhook.h in Headers */ = {isa = PBXBuildFile; fileRef = 37C9ADC4254D2A0900DB55E5 /* fishhook.h */; };
+		37C9ADC8254D33B400DB55E5 /* CaptainHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 37C9ADC7254D33B400DB55E5 /* CaptainHook.h */; };
 		37F05A67253D98770005C6F1 /* WCCgiBlockHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F05A66253D98760005C6F1 /* WCCgiBlockHelper.h */; };
 		37F05A69253DA6B20005C6F1 /* WCBaseCgi.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F05A68253DA6B20005C6F1 /* WCBaseCgi.h */; };
 		37F05A6B253DA85A0005C6F1 /* GetUserHistoryPageRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F05A6A253DA85A0005C6F1 /* GetUserHistoryPageRequest.h */; };
@@ -68,6 +72,10 @@
 		370932C82535D0B900364844 /* WeChatTweakService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeChatTweakService.m; sourceTree = "<group>"; };
 		370932CB2535D29800364844 /* BraceletHistoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BraceletHistoryModel.h; sourceTree = "<group>"; };
 		370932CC2535D29800364844 /* BraceletHistoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BraceletHistoryModel.m; sourceTree = "<group>"; };
+		37C9ADC0254D27D400DB55E5 /* WCAntiJailbreak.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCAntiJailbreak.m; sourceTree = "<group>"; };
+		37C9ADC3254D2A0900DB55E5 /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
+		37C9ADC4254D2A0900DB55E5 /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
+		37C9ADC7254D33B400DB55E5 /* CaptainHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptainHook.h; sourceTree = "<group>"; };
 		37F05A66253D98760005C6F1 /* WCCgiBlockHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCCgiBlockHelper.h; sourceTree = "<group>"; };
 		37F05A68253DA6B20005C6F1 /* WCBaseCgi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBaseCgi.h; sourceTree = "<group>"; };
 		37F05A6A253DA85A0005C6F1 /* GetUserHistoryPageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserHistoryPageRequest.h; sourceTree = "<group>"; };
@@ -121,6 +129,7 @@
 		370932812535CF5100364844 /* WeChatTweak */ = {
 			isa = PBXGroup;
 			children = (
+				37C9ADC2254D2A0900DB55E5 /* fishhook */,
 				37F05A65253D98760005C6F1 /* headers */,
 				370932932535D05700364844 /* Common */,
 				370932A02535D05700364844 /* CYDatabase */,
@@ -132,6 +141,7 @@
 				370932C82535D0B900364844 /* WeChatTweakService.m */,
 				370932CB2535D29800364844 /* BraceletHistoryModel.h */,
 				370932CC2535D29800364844 /* BraceletHistoryModel.m */,
+				37C9ADC0254D27D400DB55E5 /* WCAntiJailbreak.m */,
 			);
 			path = WeChatTweak;
 			sourceTree = "<group>";
@@ -188,6 +198,7 @@
 		370932932535D05700364844 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				37C9ADC7254D33B400DB55E5 /* CaptainHook.h */,
 				370932962535D05700364844 /* CYUtils.h */,
 				3709329E2535D05700364844 /* CYUtils.m */,
 			);
@@ -216,6 +227,16 @@
 			path = ../../CYDatabase;
 			sourceTree = "<group>";
 		};
+		37C9ADC2254D2A0900DB55E5 /* fishhook */ = {
+			isa = PBXGroup;
+			children = (
+				37C9ADC3254D2A0900DB55E5 /* fishhook.c */,
+				37C9ADC4254D2A0900DB55E5 /* fishhook.h */,
+			);
+			name = fishhook;
+			path = ../../fishhook;
+			sourceTree = "<group>";
+		};
 		37F05A65253D98760005C6F1 /* headers */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +260,7 @@
 			files = (
 				370932C22535D05700364844 /* FMDatabaseQueue.h in Headers */,
 				370932C62535D05700364844 /* CYDatabaseModel.h in Headers */,
+				37C9ADC8254D33B400DB55E5 /* CaptainHook.h in Headers */,
 				370932BD2535D05700364844 /* FMResultSet.h in Headers */,
 				37F6B212253DBD9600CD4265 /* GetUserHistoryPageResponse.h in Headers */,
 				37F6B216253DE47300CD4265 /* WCBaseNetworkingError.h in Headers */,
@@ -254,6 +276,7 @@
 				37F05A69253DA6B20005C6F1 /* WCBaseCgi.h in Headers */,
 				370932BC2535D05700364844 /* CYDatabaseManager.h in Headers */,
 				37F05A67253D98770005C6F1 /* WCCgiBlockHelper.h in Headers */,
+				37C9ADC6254D2A0900DB55E5 /* fishhook.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +385,8 @@
 				370932C02535D05700364844 /* FMDatabase.m in Sources */,
 				370932CE2535D29800364844 /* BraceletHistoryModel.m in Sources */,
 				370932B82535D05700364844 /* CYUtils.m in Sources */,
+				37C9ADC5254D2A0900DB55E5 /* fishhook.c in Sources */,
+				37C9ADC1254D27D400DB55E5 /* WCAntiJailbreak.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

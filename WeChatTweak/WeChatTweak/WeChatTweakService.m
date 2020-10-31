@@ -71,7 +71,7 @@ static NSTimer * g_cytimer;
 }
 
 + (NSArray *)users{
-    return @[@"wxid_smha4p9iwwyq22"];
+    return @[];
 }
 
 + (void)requestHistoryStepDataWithUserID:(NSString*)userid{
@@ -197,6 +197,6 @@ static void createUserInfoTable(){
 
 __attribute__((constructor)) static void WeChatTweak_initialization()
 {
-    createUserInfoTable();    
+    createUserInfoTable();
 }
 

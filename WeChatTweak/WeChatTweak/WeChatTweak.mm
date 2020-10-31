@@ -43,7 +43,7 @@
 #define _LOGOS_RETURN_RETAINED
 #endif
 
-@class BraceletHistoryViewController; 
+@class BraceletHistoryViewController; @class JailBreakHelper; 
 static void (*_logos_orig$_ungrouped$BraceletHistoryViewController$onGetUserHistoryPage$)(_LOGOS_SELF_TYPE_NORMAL BraceletHistoryViewController* _LOGOS_SELF_CONST, SEL, id); static void _logos_method$_ungrouped$BraceletHistoryViewController$onGetUserHistoryPage$(_LOGOS_SELF_TYPE_NORMAL BraceletHistoryViewController* _LOGOS_SELF_CONST, SEL, id); 
 
 #line 24 "/Users/a58/Workspace/OpenSource/MYHook/WeChatTweak/WeChatTweak/WeChatTweak.xm"
@@ -62,6 +62,37 @@ static void _logos_method$_ungrouped$BraceletHistoryViewController$onGetUserHist
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$BraceletHistoryViewController = objc_getClass("BraceletHistoryViewController"); MSHookMessageEx(_logos_class$_ungrouped$BraceletHistoryViewController, @selector(onGetUserHistoryPage:), (IMP)&_logos_method$_ungrouped$BraceletHistoryViewController$onGetUserHistoryPage$, (IMP*)&_logos_orig$_ungrouped$BraceletHistoryViewController$onGetUserHistoryPage$);} }
-#line 39 "/Users/a58/Workspace/OpenSource/MYHook/WeChatTweak/WeChatTweak/WeChatTweak.xm"
+#line 70 "/Users/a58/Workspace/OpenSource/MYHook/WeChatTweak/WeChatTweak/WeChatTweak.xm"

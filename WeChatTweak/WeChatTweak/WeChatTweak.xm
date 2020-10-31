@@ -36,3 +36,34 @@
 }
 
 %end
+
+
+
+%hook JailBreakHelper
+//+ (id)loadSetting { %log; id r = %orig; HBLogDebug(@" = %@", r); return r; }
+//+ (id)getIAPCheckPath { %log; id r = %orig; HBLogDebug(@" = %@", r); return r; }
+//+ (id)getJailbreakPath { %log; id r = %orig; HBLogDebug(@" = %@", r); return r; }
+//+ (id)getJailbreakRootDir { %log; id r = %orig; HBLogDebug(@" = %@", r); return r; }
+//+ (_Bool)JailBroken { %log; _Bool r = %orig; HBLogDebug(@" = %d", r); return NO; }
+//+ (void)initialize { %log; %orig; }
+//+ (void)PBArrayAdd_m_lastCheckTime { %log; %orig; }
+//+ (void)PBArrayAdd_m_checkPaths { %log; %orig; }
+//+ (void)PBArrayAdd_m_hasCheckPuginTimes { %log; %orig; }
+//- (void)setM_lastCheckTime:(unsigned int )m_lastCheckTime { %log; %orig; }
+//- (unsigned int )m_lastCheckTime { %log; unsigned int  r = %orig; HBLogDebug(@" = %u", r); return r; }
+//- (void)setM_checkPaths:(NSMutableArray *)m_checkPaths { %log; %orig; }
+//- (NSMutableArray *)m_checkPaths { %log; NSMutableArray * r = %orig; HBLogDebug(@" = %@", r); return r; }
+//- (void)setM_hasCheckPuginTimes:(unsigned int )m_hasCheckPuginTimes { %log; %orig; }
+//- (unsigned int )m_hasCheckPuginTimes { %log; unsigned int  r = %orig; HBLogDebug(@" = %u", r); return r; }
+//- (void)onPackageListUpdated:(id)arg1 { %log; %orig; }
+//- (void)onPackageDownloadProcessUpdated:(id)arg1 downloadSize:(int)arg2 totalSize:(int)arg3 { %log; %orig; }
+//- (void)onPackageDownloadFinish:(id)arg1 package:(id)arg2 { %log; %orig; }
+//- (_Bool)save { %log; _Bool r = %orig; HBLogDebug(@" = %d", r); return r; }
+//- (_Bool)HasInstallJailbreakPluginInvalidIAPPurchase { %log; _Bool r = %orig; HBLogDebug(@" = %d", r); return r; }
+//- (_Bool)isOverADay { %log; _Bool r = %orig; HBLogDebug(@" = %d", r); return r; }
+//- (_Bool)HasInstallJailbreakPlugin:(id)arg1 { %log; _Bool r = %orig; HBLogDebug(@" = %d", r); return NO; }
+//- (_Bool)IsJailBreak { %log; _Bool r = %orig; HBLogDebug(@" = %d", r); return NO; }
+//- (id)getKeyStr { %log; id r = %orig; HBLogDebug(@" = %@", r); return r; }/
+
+%end
+
