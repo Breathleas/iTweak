@@ -14,6 +14,7 @@
 #import "GetUserHistoryPageRequest.h"
 #import "GetUserHistoryPageResponse.h"
 #import "WCBaseNetworkingError.h"
+#import <objc/message.h>
 
 #define kBraceletHistoryTable @"wx_bracelet_history"
 
@@ -27,6 +28,10 @@ static NSTimer * g_cytimer;
 + (void)load{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidFinishLaunch:) name:UIApplicationDidFinishLaunchingNotification object:nil];
+}
+
++ (BOOL)isWeChatLogin{
+    return ((BOOL(*)(id, SEL))objc_msgSend)(NSClassFromString(@"CAppUtil"), @selector(isLogin));
 }
 
 + (void)requestStepDataRecursively {
@@ -71,10 +76,14 @@ static NSTimer * g_cytimer;
 }
 
 + (NSArray *)users{
-    return @[];
+    return @[@"wxid_smha4p9iwwyq22"];
 }
 
 + (void)requestHistoryStepDataWithUserID:(NSString*)userid{
+    if (![self isWeChatLogin]) {
+        NSLog(@">>> current user isn't login.");
+        return;
+    }
     [NSClassFromString(@"WCCgiBlockHelper") helperWithInitBlock:^WCBaseCgi *{
         WCBaseCgi *cgi = [[NSClassFromString(@"WCBaseCgi") alloc] init];
         cgi.cgiNumber = 0x12e3;

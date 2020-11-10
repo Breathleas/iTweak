@@ -30,6 +30,10 @@
 		370932CA2535D0B900364844 /* WeChatTweakService.m in Sources */ = {isa = PBXBuildFile; fileRef = 370932C82535D0B900364844 /* WeChatTweakService.m */; };
 		370932CD2535D29800364844 /* BraceletHistoryModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 370932CB2535D29800364844 /* BraceletHistoryModel.h */; };
 		370932CE2535D29800364844 /* BraceletHistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 370932CC2535D29800364844 /* BraceletHistoryModel.m */; };
+		377C192E2558EBD6009C7C1E /* WeChatSettingPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 377C192D2558EBD6009C7C1E /* WeChatSettingPage.m */; };
+		377C19302558F6DC009C7C1E /* MMWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 377C192F2558F6DC009C7C1E /* MMWebViewController.h */; };
+		377C19322558F709009C7C1E /* MMUIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 377C19312558F709009C7C1E /* MMUIViewController.h */; };
+		377C193D25592423009C7C1E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377C193C25592423009C7C1E /* WebKit.framework */; };
 		37C9ADC1254D27D400DB55E5 /* WCAntiJailbreak.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C9ADC0254D27D400DB55E5 /* WCAntiJailbreak.m */; };
 		37C9ADC5254D2A0900DB55E5 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = 37C9ADC3254D2A0900DB55E5 /* fishhook.c */; };
 		37C9ADC6254D2A0900DB55E5 /* fishhook.h in Headers */ = {isa = PBXBuildFile; fileRef = 37C9ADC4254D2A0900DB55E5 /* fishhook.h */; };
@@ -72,6 +76,10 @@
 		370932C82535D0B900364844 /* WeChatTweakService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeChatTweakService.m; sourceTree = "<group>"; };
 		370932CB2535D29800364844 /* BraceletHistoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BraceletHistoryModel.h; sourceTree = "<group>"; };
 		370932CC2535D29800364844 /* BraceletHistoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BraceletHistoryModel.m; sourceTree = "<group>"; };
+		377C192D2558EBD6009C7C1E /* WeChatSettingPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeChatSettingPage.m; sourceTree = "<group>"; };
+		377C192F2558F6DC009C7C1E /* MMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWebViewController.h; sourceTree = "<group>"; };
+		377C19312558F709009C7C1E /* MMUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMUIViewController.h; sourceTree = "<group>"; };
+		377C193C25592423009C7C1E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		37C9ADC0254D27D400DB55E5 /* WCAntiJailbreak.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCAntiJailbreak.m; sourceTree = "<group>"; };
 		37C9ADC3254D2A0900DB55E5 /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
 		37C9ADC4254D2A0900DB55E5 /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
@@ -92,6 +100,7 @@
 			files = (
 				3709327C2535CF5100364844 /* UIKit.framework in Frameworks */,
 				3709327E2535CF5100364844 /* Foundation.framework in Frameworks */,
+				377C193D25592423009C7C1E /* WebKit.framework in Frameworks */,
 				370932802535CF5100364844 /* CydiaSubstrate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,6 +128,7 @@
 		3709327A2535CF5100364844 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				377C193C25592423009C7C1E /* WebKit.framework */,
 				3709327B2535CF5100364844 /* UIKit.framework */,
 				3709327D2535CF5100364844 /* Foundation.framework */,
 				3709327F2535CF5100364844 /* CydiaSubstrate.framework */,
@@ -129,19 +139,20 @@
 		370932812535CF5100364844 /* WeChatTweak */ = {
 			isa = PBXGroup;
 			children = (
-				37C9ADC2254D2A0900DB55E5 /* fishhook */,
-				37F05A65253D98760005C6F1 /* headers */,
-				370932932535D05700364844 /* Common */,
-				370932A02535D05700364844 /* CYDatabase */,
-				370932872535CF5100364844 /* WeChatTweak.xm */,
-				370932882535CF5100364844 /* WeChatTweak.mm */,
-				370932822535CF5100364844 /* Package */,
-				370932852535CF5100364844 /* Supporting Files */,
-				370932C72535D0B900364844 /* WeChatTweakService.h */,
-				370932C82535D0B900364844 /* WeChatTweakService.m */,
 				370932CB2535D29800364844 /* BraceletHistoryModel.h */,
 				370932CC2535D29800364844 /* BraceletHistoryModel.m */,
+				370932932535D05700364844 /* Common */,
+				370932A02535D05700364844 /* CYDatabase */,
+				37C9ADC2254D2A0900DB55E5 /* fishhook */,
+				37F05A65253D98760005C6F1 /* headers */,
+				370932822535CF5100364844 /* Package */,
+				370932852535CF5100364844 /* Supporting Files */,
 				37C9ADC0254D27D400DB55E5 /* WCAntiJailbreak.m */,
+				370932882535CF5100364844 /* WeChatTweak.mm */,
+				370932872535CF5100364844 /* WeChatTweak.xm */,
+				370932C72535D0B900364844 /* WeChatTweakService.h */,
+				370932C82535D0B900364844 /* WeChatTweakService.m */,
+				377C192D2558EBD6009C7C1E /* WeChatSettingPage.m */,
 			);
 			path = WeChatTweak;
 			sourceTree = "<group>";
@@ -240,6 +251,8 @@
 		37F05A65253D98760005C6F1 /* headers */ = {
 			isa = PBXGroup;
 			children = (
+				377C19312558F709009C7C1E /* MMUIViewController.h */,
+				377C192F2558F6DC009C7C1E /* MMWebViewController.h */,
 				37F6B217253DE4FA00CD4265 /* MMObject.h */,
 				37F6B215253DE47300CD4265 /* WCBaseNetworkingError.h */,
 				37F6B213253DBED800CD4265 /* WXPBGeneratedMessage.h */,
@@ -258,6 +271,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				377C19322558F709009C7C1E /* MMUIViewController.h in Headers */,
 				370932C22535D05700364844 /* FMDatabaseQueue.h in Headers */,
 				370932C62535D05700364844 /* CYDatabaseModel.h in Headers */,
 				37C9ADC8254D33B400DB55E5 /* CaptainHook.h in Headers */,
@@ -272,6 +286,7 @@
 				370932B02535D05700364844 /* CYUtils.h in Headers */,
 				370932C92535D0B900364844 /* WeChatTweakService.h in Headers */,
 				37F6B218253DE4FA00CD4265 /* MMObject.h in Headers */,
+				377C19302558F6DC009C7C1E /* MMWebViewController.h in Headers */,
 				370932C32535D05700364844 /* FMDB.h in Headers */,
 				37F05A69253DA6B20005C6F1 /* WCBaseCgi.h in Headers */,
 				370932BC2535D05700364844 /* CYDatabaseManager.h in Headers */,
@@ -381,6 +396,7 @@
 				370932C52535D05700364844 /* FMResultSet.m in Sources */,
 				370932CA2535D0B900364844 /* WeChatTweakService.m in Sources */,
 				370932C12535D05700364844 /* CYDatabaseManager.m in Sources */,
+				377C192E2558EBD6009C7C1E /* WeChatSettingPage.m in Sources */,
 				370932BF2535D05700364844 /* CYDatabaseModel.m in Sources */,
 				370932C02535D05700364844 /* FMDatabase.m in Sources */,
 				370932CE2535D29800364844 /* BraceletHistoryModel.m in Sources */,
