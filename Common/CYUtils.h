@@ -5,7 +5,7 @@
 //  Created by jiaxw on 2020/8/31.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -61,6 +61,12 @@ FOUNDATION_EXPORT void clearAllCookies(void);
 #pragma mark - Mach-O
 
 FOUNDATION_EXPORT uint32_t isMainImageEncrypted(void);
+
+#pragma mark - UI
+
+FOUNDATION_EXPORT UIWindow* getKeyWindow(void);
+
+FOUNDATION_EXPORT UIViewController* getTopViewContoler(void);
 
 #pragma mark - Other
 

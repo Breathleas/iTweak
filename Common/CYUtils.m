@@ -216,6 +216,40 @@ NSInteger hourOfDate(NSDate *date){
     return dateComponent.hour;
 }
 
+UIWindow* getKeyWindow(){
+    UIWindow* foundWindow = nil;
+    NSArray* windows = [[UIApplication sharedApplication] windows];
+    for (UIWindow *window in windows) {
+        if (window.isKeyWindow) {
+            foundWindow = window;
+            break;
+        }
+    }
+    return foundWindow;
+}
+
+UIViewController* getTopViewContoler(){
+    UIWindow *keyWindow = getKeyWindow();
+    if (!keyWindow) {
+        return nil;
+    }
+    UIViewController* vc = keyWindow.rootViewController;
+    while (YES) {
+        if ([vc isKindOfClass:[UITabBarController class]]) {
+            vc = ((UITabBarController*)vc).selectedViewController;
+        }
+        if ([vc isKindOfClass:[UINavigationController class]]) {
+            vc = ((UINavigationController*)vc).visibleViewController;
+        }
+        if (vc.presentedViewController) {
+            vc = vc.presentedViewController;
+        } else {
+            break;
+        }
+    }
+    return vc;
+}
+
 
 #pragma mark - CYUtils
 
