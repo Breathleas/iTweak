@@ -32,6 +32,17 @@ static NSTimer * g_cytimer;
 
 + (BOOL)isWeChatLogin{
     return ((BOOL(*)(id, SEL))objc_msgSend)(NSClassFromString(@"CAppUtil"), @selector(isLogin));
+    /*
+     bool __cdecl +[CAppUtil isLogin](CAppUtil_meta *self, SEL a2)
+     {
+       v2 = j__objc_msgSend(&OBJC_CLASS___MMContext, "currentContext");
+       v3 = (void *)j__objc_retainAutoreleasedReturnValue(v2);
+       v4 = j__objc_msgSend(&OBJC_CLASS___WCAccountControlMgr, "class");
+       v5 = j__objc_msgSend(v3, "getService:", v4);
+       v7 = (unsigned __int64)j__objc_msgSend(v5, "isLogin");
+       return v7;
+     }
+     */
 }
 
 + (void)requestStepDataRecursively {

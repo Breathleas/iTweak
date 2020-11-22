@@ -12,14 +12,28 @@
 #include <dlfcn.h>
 #include <notify.h>
 #include <stdlib.h>
+#include "GSEvent.h" // for: GSEventRecord, GSCurrentEventTimestamp(), GSSendSystemEvent()
 
 NSInteger hourOfDate(NSDate *date);
+void sendHomeButtonEvent(void);
 
 NSInteger hourOfDate(NSDate *date){
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSUInteger unitFlags = NSCalendarUnitHour;
     NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:date];
     return dateComponent.hour;
+}
+
+void sendHomeButtonEvent(void) {
+    NSLog(@">>> click home button event.");
+    struct GSEventRecord record;
+    memset(&record, 0, sizeof(record));
+    record.timestamp = GSCurrentEventTimestamp();
+    record.type = kGSEventMenuButtonDown;
+    GSSendSystemEvent(&record);
+    record.timestamp = GSCurrentEventTimestamp();
+    record.type = kGSEventMenuButtonUp;
+    GSSendSystemEvent(&record);
 }
 
 @interface CYAppManager : NSObject
@@ -39,10 +53,11 @@ NSInteger hourOfDate(NSDate *date){
     static BOOL flag = true;
     if (hour == 6 || hour == 23) {
         if (flag) {
-            [self launchApp:@"com.tencent.xin"];
+            [self launchApp:@"com.baidu.BaiduMobile"];
             flag = false;
         }
     } else {
+        sendHomeButtonEvent();
         flag = true;
     }
 }
