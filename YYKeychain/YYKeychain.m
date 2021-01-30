@@ -546,7 +546,7 @@ account:(NSString *)account
 
 + (nullable NSArray<NSDictionary *> *)exportItemsWithError:(NSError **)error{
     NSArray<YYKeychainItem *> *items = [self selectItems:[YYKeychainItem new] error:error];
-    if (error || items.count == 0) {
+    if (*error || items.count == 0) {
         return nil;
     }
     
