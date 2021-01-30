@@ -248,6 +248,7 @@ static void clearAwemeDeviceInfo(){
         NSLog(@">>> clear did and iid failed.");
     }
     
+    removeUserDefaults();
     resetKeyChainAllPassword();
     clearAllCookies();
 }

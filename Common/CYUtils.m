@@ -147,6 +147,12 @@ void clearAllCookies(){
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
+void removeUserDefaults(){
+    NSString *domain = [[NSBundle mainBundle] bundleIdentifier];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:domain];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 #pragma mark - Other
 
 NSString* generateUUID(void){

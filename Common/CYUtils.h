@@ -58,6 +58,12 @@ FOUNDATION_EXPORT NSData *dataWithBase64String(NSString *str);
 
 FOUNDATION_EXPORT void clearAllCookies(void);
 
+#pragma mark - UserDefaults
+
+
+/// 清除 UserDefaults 文件
+FOUNDATION_EXPORT void removeUserDefaults(void);
+
 #pragma mark - Mach-O
 
 FOUNDATION_EXPORT uint32_t isMainImageEncrypted(void);
