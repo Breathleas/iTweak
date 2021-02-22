@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "CYUtils.h"
 #import "AwemeDataService.h"
+#import "AWECommentPanelBaseCell.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
@@ -266,6 +267,40 @@ typedef void(^TTNetworkCallbackWithResponse)(NSError *, id, id);
     return %orig(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, blk11, blk12, arg13);
 }
 
+
+%end
+
+//%hook AWECommentPanelBaseCell
+//
+//- (id)displayTimeText {
+//    %log;
+//    NSLog(@">>>> -[AWECommentPanelBaseCell displayTimeText]");
+//    id r = %orig;
+//    id commentModel = [self mainComment];
+//    if([self showTimestampAfterComment] && commentModel){
+//        NSNumber *num = objectValueForKey(commentModel, @"createTime");
+//
+//        if(num){
+//            return timestampToString([num longLongValue]);
+//        }
+//    }
+//    return r;
+//}
+//
+//%end
+
+
+%hook AWEDateTimeFormatter
+
+// 显示评论时间戳
++ (id)formattedDateForTimestamp:(double)arg1 {
+    id r = %orig;
+    NSLog(@">>>> +[AWEDateTimeFormatter formattedDateForTimestamp:] %@ -> %@", @(arg1), r);
+    
+    NSString *t = timestampToString(arg1);
+    
+    return t ?: r;
+}
 
 %end
 

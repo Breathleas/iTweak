@@ -41,6 +41,7 @@
 		374CCCCA2517065F00680D75 /* CYDatabaseModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 374CCCBD2517065F00680D75 /* CYDatabaseModel.h */; };
 		374CCCCD2517070300680D75 /* AwemeDataService.h in Headers */ = {isa = PBXBuildFile; fileRef = 374CCCCB2517070300680D75 /* AwemeDataService.h */; };
 		374CCCCE2517070300680D75 /* AwemeDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 374CCCCC2517070300680D75 /* AwemeDataService.m */; };
+		3761AE4325E174E300771548 /* AWECommentPanelBaseCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3761AE3E25E174E300771548 /* AWECommentPanelBaseCell.h */; };
 		37653354254275750099C194 /* YYKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 37653352254275750099C194 /* YYKeychain.h */; };
 		37653355254275750099C194 /* YYKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 37653353254275750099C194 /* YYKeychain.m */; };
 		377D387425BA848C003D6D8A /* CYCommonHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 377D387325BA848B003D6D8A /* CYCommonHook.m */; };
@@ -85,6 +86,7 @@
 		374CCCBD2517065F00680D75 /* CYDatabaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYDatabaseModel.h; sourceTree = "<group>"; };
 		374CCCCB2517070300680D75 /* AwemeDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AwemeDataService.h; sourceTree = "<group>"; };
 		374CCCCC2517070300680D75 /* AwemeDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AwemeDataService.m; sourceTree = "<group>"; };
+		3761AE3E25E174E300771548 /* AWECommentPanelBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWECommentPanelBaseCell.h; sourceTree = "<group>"; };
 		37653352254275750099C194 /* YYKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKeychain.h; sourceTree = "<group>"; };
 		37653353254275750099C194 /* YYKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYKeychain.m; sourceTree = "<group>"; };
 		377D387325BA848B003D6D8A /* CYCommonHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYCommonHook.m; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		374CCBEC25148FF100680D75 /* AwemeTweak */ = {
 			isa = PBXGroup;
 			children = (
+				3761AE3D25E174E300771548 /* Headers */,
 				37653351254275750099C194 /* YYKeychain */,
 				374CCCB02517065F00680D75 /* CYDatabase */,
 				374CCC972517062800680D75 /* Common */,
@@ -242,6 +245,14 @@
 			path = ../../CYDatabase;
 			sourceTree = "<group>";
 		};
+		3761AE3D25E174E300771548 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				3761AE3E25E174E300771548 /* AWECommentPanelBaseCell.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
 		37653351254275750099C194 /* YYKeychain */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +286,7 @@
 				374CCCC62517065F00680D75 /* FMDatabaseQueue.h in Headers */,
 				374CCCCA2517065F00680D75 /* CYDatabaseModel.h in Headers */,
 				374CCCC02517065F00680D75 /* CYDatabaseManager.h in Headers */,
+				3761AE4325E174E300771548 /* AWECommentPanelBaseCell.h in Headers */,
 				374CCC932517058500680D75 /* YYModel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
